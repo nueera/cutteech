@@ -35,21 +35,21 @@
       kicker: "Textile automation",
       title: "Automatic cutting machines",
       text: "High-throughput cutting, spreading and workflow tools for apparel, furnishings and technical textile production.",
-      image: "wp-content/uploads/2025/01/Automatic-Cutting-Machines.jpg",
+      image: "wp-content/uploads/2025/01/Automatic-Cutting-Machines.webp",
       href: "automatic-cutting-machines/index.html"
     },
     {
       kicker: "Fabrication",
       title: "Laser QC and projection",
       text: "Virtek inspection and projection systems that bring repeatable accuracy to sheet metal, truss and assembly teams.",
-      image: "wp-content/uploads/2025/01/Virtek-Laser-QC.jpg",
+      image: "wp-content/uploads/2025/01/Virtek-Laser-QC.webp",
       href: "virtek-laser-qc/index.html"
     },
     {
       kicker: "CNC and CSM",
       title: "Advanced manufacturing cells",
       text: "Machinery, software and process support for bending, cutting, nesting, quoting and production management.",
-      image: "wp-content/uploads/2025/01/Advanced-Manufacturing-Solutions-scaled.jpg",
+      image: "wp-content/uploads/2025/01/Advanced-Manufacturing-Solutions-scaled.webp",
       href: "advanced-manufacturing-solutions/index.html"
     }
   ];
@@ -62,7 +62,7 @@
     ["Footwear", "wp-content/uploads/2024/10/10529659.webp", "footwear/index.html"],
     ["Wind", "wp-content/uploads/2024/10/1993641.webp", "wind/index.html"],
     ["Home Furnishing", "wp-content/uploads/2024/10/1966817.webp", "home-furnishings/index.html"],
-    ["Health Care", "wp-content/uploads/2024/10/file-1.png", "health-care/index.html"]
+    ["Health Care", "wp-content/uploads/2024/10/file-1.webp", "health-care/index.html"]
   ];
 
   const partners = [
@@ -92,6 +92,24 @@
       name: "Anil K.",
       role: "Director, Precision Engineering Firm",
       initials: "AK"
+    },
+    {
+      text: "The CSM tube bender paid for itself within 8 months. Cuttech's training program meant our operators were confident from day one.",
+      name: "Vikram T.",
+      role: "Operations Head, Tube Manufacturing",
+      initials: "VT"
+    },
+    {
+      text: "We needed a partner who understood both the technology and the production floor reality. Cuttech bridges that gap better than anyone we've worked with.",
+      name: "Sunita R.",
+      role: "Procurement Director, Auto Components",
+      initials: "SR"
+    },
+    {
+      text: "From initial consultation through installation and after-sales support, the Cuttech team has been exceptional. Our laser cutting throughput increased 35%.",
+      name: "Deepak M.",
+      role: "CTO, Precision Sheet Metal Works",
+      initials: "DM"
     }
   ];
 
@@ -185,10 +203,14 @@
               <a href="#solutions">Solutions</a>
               <a href="products/index.html">Products</a>
               <a href="#industries">Industries</a>
+              <a href="videos/index.html">Videos</a>
               <a href="resources/index.html">Resources</a>
               <a href="about-us/index.html">About</a>
             </nav>
             <div class="ct-nav__actions">
+              <button class="ct-search-toggle" aria-label="Search" title="Search (Ctrl+K)">
+                <svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+              </button>
               <button class="ct-theme-toggle" aria-label="Toggle theme" title="Toggle theme">
                 ${sunIcon}${moonIcon}
               </button>
@@ -205,6 +227,7 @@
           <a href="#solutions">Solutions</a>
           <a href="products/index.html">Products</a>
           <a href="#industries">Industries</a>
+          <a href="videos/index.html">Videos</a>
           <a href="resources/index.html">Resources</a>
           <a href="about-us/index.html">About</a>
           <a href="contact-us/index.html">Contact Sales</a>
@@ -280,11 +303,104 @@
             </section>
           </div>
 
+          <!-- Industry Explorer -->
+          <section class="ct-explorer" id="explorer">
+            <div class="ct-container">
+              <div class="ct-section__head ct-animate">
+                <h2>Find the right <span class="ct-copper">machine</span> for your industry.</h2>
+                <p>See which cutting, inspection and automation solutions match your specific industry requirements at a glance.</p>
+              </div>
+              <div class="ct-explorer__grid ct-animate" id="ct-explorer-grid">
+                <div class="ct-explorer__row ct-explorer__row--header">
+                  <div class="ct-explorer__cell"></div>
+                  <div class="ct-explorer__cell" data-machine="Laser QC">Laser QC</div>
+                  <div class="ct-explorer__cell" data-machine="Laser Cutting">Laser Cutting</div>
+                  <div class="ct-explorer__cell" data-machine="CSM Tube Bender">CSM Tube Bender</div>
+                  <div class="ct-explorer__cell" data-machine="Eagle">Eagle</div>
+                  <div class="ct-explorer__cell" data-machine="Automatic Cutting">Automatic Cutting</div>
+                  <div class="ct-explorer__cell" data-machine="Fabric Roll Loader">Fabric Roll Loader</div>
+                </div>
+                <div class="ct-explorer__row" data-industry="Aerospace">
+                  <div class="ct-explorer__cell ct-explorer__cell--industry">Aerospace</div>
+                  <div class="ct-explorer__cell"><span class="ct-explorer__dot ct-explorer__dot--active" data-machine="Laser QC"></span></div>
+                  <div class="ct-explorer__cell"><span class="ct-explorer__dot ct-explorer__dot--active" data-machine="Laser Cutting"></span></div>
+                  <div class="ct-explorer__cell"><span class="ct-explorer__dot"></span></div>
+                  <div class="ct-explorer__cell"><span class="ct-explorer__dot"></span></div>
+                  <div class="ct-explorer__cell"><span class="ct-explorer__dot"></span></div>
+                  <div class="ct-explorer__cell"><span class="ct-explorer__dot"></span></div>
+                </div>
+                <div class="ct-explorer__row" data-industry="Automotive">
+                  <div class="ct-explorer__cell ct-explorer__cell--industry">Automotive</div>
+                  <div class="ct-explorer__cell"><span class="ct-explorer__dot ct-explorer__dot--active" data-machine="Laser QC"></span></div>
+                  <div class="ct-explorer__cell"><span class="ct-explorer__dot ct-explorer__dot--active" data-machine="Laser Cutting"></span></div>
+                  <div class="ct-explorer__cell"><span class="ct-explorer__dot ct-explorer__dot--active" data-machine="CSM Tube Bender"></span></div>
+                  <div class="ct-explorer__cell"><span class="ct-explorer__dot"></span></div>
+                  <div class="ct-explorer__cell"><span class="ct-explorer__dot"></span></div>
+                  <div class="ct-explorer__cell"><span class="ct-explorer__dot"></span></div>
+                </div>
+                <div class="ct-explorer__row" data-industry="Apparel">
+                  <div class="ct-explorer__cell ct-explorer__cell--industry">Apparel</div>
+                  <div class="ct-explorer__cell"><span class="ct-explorer__dot"></span></div>
+                  <div class="ct-explorer__cell"><span class="ct-explorer__dot"></span></div>
+                  <div class="ct-explorer__cell"><span class="ct-explorer__dot"></span></div>
+                  <div class="ct-explorer__cell"><span class="ct-explorer__dot ct-explorer__dot--active" data-machine="Eagle"></span></div>
+                  <div class="ct-explorer__cell"><span class="ct-explorer__dot ct-explorer__dot--active" data-machine="Automatic Cutting"></span></div>
+                  <div class="ct-explorer__cell"><span class="ct-explorer__dot ct-explorer__dot--active" data-machine="Fabric Roll Loader"></span></div>
+                </div>
+                <div class="ct-explorer__row" data-industry="Footwear">
+                  <div class="ct-explorer__cell ct-explorer__cell--industry">Footwear</div>
+                  <div class="ct-explorer__cell"><span class="ct-explorer__dot"></span></div>
+                  <div class="ct-explorer__cell"><span class="ct-explorer__dot"></span></div>
+                  <div class="ct-explorer__cell"><span class="ct-explorer__dot"></span></div>
+                  <div class="ct-explorer__cell"><span class="ct-explorer__dot ct-explorer__dot--active" data-machine="Eagle"></span></div>
+                  <div class="ct-explorer__cell"><span class="ct-explorer__dot ct-explorer__dot--active" data-machine="Automatic Cutting"></span></div>
+                  <div class="ct-explorer__cell"><span class="ct-explorer__dot"></span></div>
+                </div>
+                <div class="ct-explorer__row" data-industry="Sheet Metal">
+                  <div class="ct-explorer__cell ct-explorer__cell--industry">Sheet Metal</div>
+                  <div class="ct-explorer__cell"><span class="ct-explorer__dot ct-explorer__dot--active" data-machine="Laser QC"></span></div>
+                  <div class="ct-explorer__cell"><span class="ct-explorer__dot ct-explorer__dot--active" data-machine="Laser Cutting"></span></div>
+                  <div class="ct-explorer__cell"><span class="ct-explorer__dot ct-explorer__dot--active" data-machine="CSM Tube Bender"></span></div>
+                  <div class="ct-explorer__cell"><span class="ct-explorer__dot"></span></div>
+                  <div class="ct-explorer__cell"><span class="ct-explorer__dot"></span></div>
+                  <div class="ct-explorer__cell"><span class="ct-explorer__dot"></span></div>
+                </div>
+                <div class="ct-explorer__row" data-industry="Health Care">
+                  <div class="ct-explorer__cell ct-explorer__cell--industry">Health Care</div>
+                  <div class="ct-explorer__cell"><span class="ct-explorer__dot ct-explorer__dot--active" data-machine="Laser QC"></span></div>
+                  <div class="ct-explorer__cell"><span class="ct-explorer__dot ct-explorer__dot--active" data-machine="Laser Cutting"></span></div>
+                  <div class="ct-explorer__cell"><span class="ct-explorer__dot"></span></div>
+                  <div class="ct-explorer__cell"><span class="ct-explorer__dot"></span></div>
+                  <div class="ct-explorer__cell"><span class="ct-explorer__dot"></span></div>
+                  <div class="ct-explorer__cell"><span class="ct-explorer__dot"></span></div>
+                </div>
+                <div class="ct-explorer__row" data-industry="Wind">
+                  <div class="ct-explorer__cell ct-explorer__cell--industry">Wind</div>
+                  <div class="ct-explorer__cell"><span class="ct-explorer__dot ct-explorer__dot--active" data-machine="Laser QC"></span></div>
+                  <div class="ct-explorer__cell"><span class="ct-explorer__dot ct-explorer__dot--active" data-machine="Laser Cutting"></span></div>
+                  <div class="ct-explorer__cell"><span class="ct-explorer__dot"></span></div>
+                  <div class="ct-explorer__cell"><span class="ct-explorer__dot"></span></div>
+                  <div class="ct-explorer__cell"><span class="ct-explorer__dot"></span></div>
+                  <div class="ct-explorer__cell"><span class="ct-explorer__dot"></span></div>
+                </div>
+                <div class="ct-explorer__row" data-industry="Home Furnishings">
+                  <div class="ct-explorer__cell ct-explorer__cell--industry">Home Furnishings</div>
+                  <div class="ct-explorer__cell"><span class="ct-explorer__dot"></span></div>
+                  <div class="ct-explorer__cell"><span class="ct-explorer__dot"></span></div>
+                  <div class="ct-explorer__cell"><span class="ct-explorer__dot"></span></div>
+                  <div class="ct-explorer__cell"><span class="ct-explorer__dot ct-explorer__dot--active" data-machine="Eagle"></span></div>
+                  <div class="ct-explorer__cell"><span class="ct-explorer__dot ct-explorer__dot--active" data-machine="Automatic Cutting"></span></div>
+                  <div class="ct-explorer__cell"><span class="ct-explorer__dot ct-explorer__dot--active" data-machine="Fabric Roll Loader"></span></div>
+                </div>
+              </div>
+            </div>
+          </section>
+
           <!-- Process -->
           <section class="ct-section">
             <div class="ct-process">
               <div class="ct-process__media ct-animate-left">
-                <img src="wp-content/uploads/2024/11/Untitled-design-2024-11-18T150950.270.png" alt="Manufacturing automation equipment" loading="lazy">
+                <img src="wp-content/uploads/2024/11/Untitled-design-2024-11-18T150950.270.webp" alt="Manufacturing automation equipment" loading="lazy">
               </div>
               <div>
                 <div class="ct-section__head ct-animate">
@@ -308,13 +424,28 @@
             </div>
           </section>
 
-          <!-- Testimonials -->
-          <section class="ct-section ct-section--dark">
+          <!-- Testimonials Carousel -->
+          <section class="ct-section ct-section--dark" id="testimonials">
             <div class="ct-section__head ct-animate">
               <h2>What our <span class="ct-copper">clients</span> say.</h2>
               <p>Real results from real manufacturing teams across India.</p>
             </div>
-            <div class="ct-testimonials ct-stagger">${testimonialCards}</div>
+            <div class="ct-testimonial-carousel" id="ct-testimonial-carousel">
+              <div class="ct-testimonial-carousel__viewport">
+                <div class="ct-testimonial-carousel__track" id="ct-testimonial-track">
+                  ${testimonialCards}
+                </div>
+              </div>
+              <div class="ct-testimonial-carousel__nav">
+                <button class="ct-testimonial-carousel__arrow ct-testimonial-carousel__arrow--prev" aria-label="Previous testimonial">
+                  <svg viewBox="0 0 24 24"><polyline points="15 18 9 12 15 6"/></svg>
+                </button>
+                <div class="ct-testimonial-carousel__dots" id="ct-testimonial-dots"></div>
+                <button class="ct-testimonial-carousel__arrow ct-testimonial-carousel__arrow--next" aria-label="Next testimonial">
+                  <svg viewBox="0 0 24 24"><polyline points="9 6 15 12 9 18"/></svg>
+                </button>
+              </div>
+            </div>
           </section>
 
           <!-- CTA -->
@@ -377,6 +508,24 @@
       <button class="ct-back-top" id="ct-back-top" aria-label="Back to top">
         ${arrowUpIcon}
       </button>
+
+      <!-- Search Overlay -->
+      <div class="ct-search-overlay" id="ct-search-overlay" aria-hidden="true">
+        <div class="ct-search-overlay__backdrop"></div>
+        <div class="ct-search-overlay__modal">
+          <div class="ct-search-overlay__header">
+            <svg class="ct-search-overlay__icon" viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+            <input class="ct-search-overlay__input" id="ct-search-input" type="text" placeholder="Search pages, products, industries..." autocomplete="off">
+            <kbd class="ct-search-overlay__kbd">ESC</kbd>
+          </div>
+          <div class="ct-search-overlay__results" id="ct-search-results"></div>
+          <div class="ct-search-overlay__footer">
+            <span><kbd>&uarr;</kbd><kbd>&darr;</kbd> Navigate</span>
+            <span><kbd>Enter</kbd> Open</span>
+            <span><kbd>Esc</kbd> Close</span>
+          </div>
+        </div>
+      </div>
     `;
 
     /* ============================================================
@@ -414,16 +563,68 @@
     }
 
     /* ============================================================
-     BACK TO TOP
+     BACK TO TOP WITH PROGRESS RING
      ============================================================ */
     const backTop = document.getElementById("ct-back-top");
     if (backTop) {
+      // Add SVG progress ring
+      var circumference = 2 * Math.PI * 18; // radius 18, diameter 48
+      var svgRing = document.createElementNS("http://www.w3.org/2000/svg", "svg");
+      svgRing.setAttribute("class", "ct-back-top__ring");
+      svgRing.setAttribute("viewBox", "0 0 48 48");
+      svgRing.setAttribute("width", "48");
+      svgRing.setAttribute("height", "48");
+      var defs = document.createElementNS("http://www.w3.org/2000/svg", "defs");
+      var gradient = document.createElementNS("http://www.w3.org/2000/svg", "linearGradient");
+      gradient.setAttribute("id", "ring-gradient");
+      gradient.setAttribute("x1", "0%"); gradient.setAttribute("y1", "0%");
+      gradient.setAttribute("x2", "100%"); gradient.setAttribute("y2", "100%");
+      var stop1 = document.createElementNS("http://www.w3.org/2000/svg", "stop");
+      stop1.setAttribute("offset", "0%"); stop1.setAttribute("stop-color", "#C85A18");
+      var stop2 = document.createElementNS("http://www.w3.org/2000/svg", "stop");
+      stop2.setAttribute("offset", "100%"); stop2.setAttribute("stop-color", "#1A5BF0");
+      gradient.appendChild(stop1); gradient.appendChild(stop2);
+      defs.appendChild(gradient);
+      svgRing.appendChild(defs);
+      // Background circle
+      var bgCircle = document.createElementNS("http://www.w3.org/2000/svg", "circle");
+      bgCircle.setAttribute("cx", "24"); bgCircle.setAttribute("cy", "24");
+      bgCircle.setAttribute("r", "18"); bgCircle.setAttribute("fill", "none");
+      bgCircle.setAttribute("stroke", "currentColor"); bgCircle.setAttribute("stroke-width", "3");
+      bgCircle.setAttribute("opacity", "0.12");
+      svgRing.appendChild(bgCircle);
+      // Progress circle
+      var progressCircle = document.createElementNS("http://www.w3.org/2000/svg", "circle");
+      progressCircle.setAttribute("cx", "24"); progressCircle.setAttribute("cy", "24");
+      progressCircle.setAttribute("r", "18"); progressCircle.setAttribute("fill", "none");
+      progressCircle.setAttribute("stroke", "url(#ring-gradient)");
+      progressCircle.setAttribute("stroke-width", "3");
+      progressCircle.setAttribute("stroke-linecap", "round");
+      progressCircle.setAttribute("stroke-dasharray", circumference);
+      progressCircle.setAttribute("stroke-dashoffset", circumference);
+      progressCircle.setAttribute("transform", "rotate(-90 24 24)");
+      svgRing.appendChild(progressCircle);
+
+      // Wrap existing content
+      var existingContent = backTop.innerHTML;
+      backTop.innerHTML = "";
+      backTop.appendChild(svgRing);
+      var arrowWrap = document.createElement("span");
+      arrowWrap.className = "ct-back-top__arrow";
+      arrowWrap.innerHTML = existingContent;
+      backTop.appendChild(arrowWrap);
+
       window.addEventListener("scroll", function () {
         if (window.scrollY > 600) {
           backTop.classList.add("visible");
         } else {
           backTop.classList.remove("visible");
         }
+        // Update progress ring
+        var docH = document.documentElement.scrollHeight - window.innerHeight;
+        var pct = docH > 0 ? (window.scrollY / docH) : 0;
+        var offset = circumference - (pct * circumference);
+        progressCircle.setAttribute("stroke-dashoffset", offset);
       }, { passive: true });
 
       backTop.addEventListener("click", function () {
@@ -700,36 +901,418 @@
     setupLazyLoad();
 
     /* ============================================================
-       FORM VALIDATION
+       FORM HANDLER — Real backend + localStorage backup
        ============================================================ */
-    document.querySelectorAll(".ct-form").forEach(form => {
-      form.addEventListener("submit", e => {
-        e.preventDefault();
-        let valid = true;
-        form.querySelectorAll("input[required], textarea[required], select[required]").forEach(field => {
-          if (!field.checkValidity()) {
-            valid = false;
-            field.style.borderColor = "#ef4444";
-            field.style.boxShadow = "0 0 0 3px rgba(239,68,68,0.1)";
-          } else {
-            field.style.borderColor = "";
-            field.style.boxShadow = "";
-          }
+    var FORM_WEBHOOK = "https://docs.google.com/forms/d/e/FORM_ID/formResponse";
+
+    function showFormState(form, state, retryFn) {
+      // Remove previous states
+      var old = form.querySelectorAll(".ct-form__success, .ct-form__error, .ct-form__spinner");
+      old.forEach(function(el) { el.remove(); });
+
+      if (state === "submitting") {
+        form.classList.add("ct-form--submitting");
+        form.querySelectorAll("input, textarea, select, button").forEach(function(f) { f.disabled = true; });
+        var spinner = document.createElement("div");
+        spinner.className = "ct-form__spinner";
+        spinner.innerHTML = '<div class="ct-form__spinner-dot"></div><div class="ct-form__spinner-dot"></div><div class="ct-form__spinner-dot"></div>';
+        form.appendChild(spinner);
+      } else if (state === "success") {
+        form.classList.remove("ct-form--submitting");
+        form.querySelectorAll("input, textarea, select, button").forEach(function(f) { f.disabled = false; });
+        form.querySelectorAll("input, textarea, select").forEach(function(f) { f.value = ""; });
+        var successEl = document.createElement("div");
+        successEl.className = "ct-form__success";
+        successEl.innerHTML = '<svg viewBox="0 0 52 52" class="ct-form__checkmark"><circle cx="26" cy="26" r="25" fill="none"/><path fill="none" d="M14.1 27.2l7.1 7.2 16.7-16.8"/></svg><span>Thank you! Your enquiry has been submitted. We\'ll respond within 24 hours.</span>';
+        form.appendChild(successEl);
+        setTimeout(function() { successEl.classList.add("visible"); }, 50);
+        setTimeout(function() {
+          successEl.classList.remove("visible");
+          setTimeout(function() { successEl.remove(); }, 400);
+        }, 5000);
+      } else if (state === "error") {
+        form.classList.remove("ct-form--submitting");
+        form.querySelectorAll("input, textarea, select, button").forEach(function(f) { f.disabled = false; });
+        var errorEl = document.createElement("div");
+        errorEl.className = "ct-form__error";
+        errorEl.innerHTML = '<span>Submission failed. Please try again.</span><button type="button" class="ct-form__retry">Retry</button>';
+        form.appendChild(errorEl);
+        errorEl.querySelector(".ct-form__retry").addEventListener("click", function() {
+          errorEl.remove();
+          if (retryFn) retryFn();
         });
-        if (valid) {
-          const successEl = form.querySelector(".ct-form__success") || (() => {
-            const el = document.createElement("div");
-            el.className = "ct-form__success";
-            el.textContent = "Thank you! Your enquiry has been submitted. We'll respond within 24 hours.";
-            form.appendChild(el);
-            return el;
-          })();
-          successEl.classList.add("visible");
-          form.querySelectorAll("input, textarea, select").forEach(f => f.value = "");
-          setTimeout(() => successEl.classList.remove("visible"), 5000);
+      }
+    }
+
+    function handleFormSubmit(form) {
+      var valid = true;
+      form.querySelectorAll("input[required], textarea[required], select[required]").forEach(function(field) {
+        if (!field.checkValidity()) {
+          valid = false;
+          field.style.borderColor = "#ef4444";
+          field.style.boxShadow = "0 0 0 3px rgba(239,68,68,0.1)";
+        } else {
+          field.style.borderColor = "";
+          field.style.boxShadow = "";
         }
       });
+      if (!valid) return;
+
+      // Collect form data
+      var formData = {};
+      form.querySelectorAll("input, textarea, select").forEach(function(field) {
+        if (field.name) formData[field.name] = field.value;
+      });
+      formData._timestamp = new Date().toISOString();
+      formData._page = window.location.href;
+
+      // Save to localStorage as backup
+      try {
+        var stored = JSON.parse(localStorage.getItem("cuttech-form-submissions") || "[]");
+        stored.push(formData);
+        localStorage.setItem("cuttech-form-submissions", JSON.stringify(stored));
+      } catch (e) {}
+
+      // Track with dataLayer
+      if (window.dataLayer) {
+        window.dataLayer.push({
+          event: "form_submission",
+          form_name: form.id || "ct-form",
+          page_url: window.location.href
+        });
+      }
+
+      showFormState(form, "submitting");
+
+      // Submit to webhook
+      var body = new FormData();
+      Object.keys(formData).forEach(function(key) { body.append(key, formData[key]); });
+
+      fetch(FORM_WEBHOOK, {
+        method: "POST",
+        mode: "no-cors",
+        body: body
+      }).then(function() {
+        showFormState(form, "success");
+      }).catch(function() {
+        showFormState(form, "error", function() { handleFormSubmit(form); });
+      });
+    }
+
+    document.querySelectorAll(".ct-form").forEach(function(form) {
+      form.addEventListener("submit", function(e) {
+        e.preventDefault();
+        handleFormSubmit(form);
+      });
     });
+
+    /* ============================================================
+       SITE SEARCH
+       ============================================================ */
+    var searchIndex = [
+      { title: "Automatic Cutting Machines", desc: "High-throughput cutting for textiles", url: "automatic-cutting-machines/index.html", cat: "Solutions" },
+      { title: "Laser QC & Projection", desc: "Virtek inspection and projection", url: "virtek-laser-qc/index.html", cat: "Solutions" },
+      { title: "Advanced Manufacturing", desc: "CNC, CSM, bending, nesting", url: "advanced-manufacturing-solutions/index.html", cat: "Solutions" },
+      { title: "CNC Machinery", desc: "Computer numerical control machines", url: "cnc-machinery/index.html", cat: "Products" },
+      { title: "CSM Machinery", desc: "Tube bending and forming", url: "csm-machinery/index.html", cat: "Products" },
+      { title: "Virtek Iris", desc: "Laser projection system", url: "virtek-iris/index.html", cat: "Products" },
+      { title: "Eagle Cutting System", desc: "Automated cutting solution", url: "eagle/index.html", cat: "Products" },
+      { title: "Laser Cutting Machine", desc: "Precision laser cutting", url: "laser-cutting-machine/index.html", cat: "Products" },
+      { title: "Fabric Roll Loader", desc: "Automated fabric handling", url: "fabric-roll-loader/index.html", cat: "Products" },
+      { title: "Process Automation", desc: "Workflow automation solutions", url: "process-automation/index.html", cat: "Services" },
+      { title: "Textile Manufacturing Automation", desc: "End-to-end textile automation", url: "automation-for-textile-manufacturing/index.html", cat: "Services" },
+      { title: "Manufacturing Automation", desc: "Smart factory solutions", url: "manufacturing-automation/index.html", cat: "Services" },
+      { title: "Aerospace", desc: "Precision cutting for aerospace", url: "aerospace/index.html", cat: "Industries" },
+      { title: "Automotive", desc: "Automotive manufacturing solutions", url: "automotive/index.html", cat: "Industries" },
+      { title: "Apparel", desc: "Fashion and apparel cutting", url: "apparel/index.html", cat: "Industries" },
+      { title: "Footwear", desc: "Footwear pattern cutting", url: "footwear/index.html", cat: "Industries" },
+      { title: "Sheet Metal", desc: "Sheet metal fabrication", url: "sheet-metal/index.html", cat: "Industries" },
+      { title: "Health Care", desc: "Medical material cutting", url: "health-care/index.html", cat: "Industries" },
+      { title: "Wind Energy", desc: "Composite cutting for wind", url: "wind/index.html", cat: "Industries" },
+      { title: "Home Furnishings", desc: "Furniture and furnishing cutting", url: "home-furnishings/index.html", cat: "Industries" },
+      { title: "Hexagon", desc: "CAD/CAM partner", url: "hexagon/index.html", cat: "Partners" },
+      { title: "Audaces", desc: "Fashion technology partner", url: "audaces/index.html", cat: "Partners" },
+      { title: "Virtek", desc: "Laser systems partner", url: "virtek/index.html", cat: "Partners" },
+      { title: "About Cuttech", desc: "Company mission and values", url: "about-us/index.html", cat: "Company" },
+      { title: "Contact Us", desc: "Get in touch with Cuttech", url: "contact-us/index.html", cat: "Company" },
+      { title: "Products", desc: "Browse all products", url: "products/index.html", cat: "Products" },
+      { title: "Resources", desc: "Guides, case studies and more", url: "resources/index.html", cat: "Company" },
+      { title: "Demo Booking", desc: "Book a machine demonstration", url: "demo-booking/index.html", cat: "Company" },
+      { title: "Case Studies", desc: "Real results from real teams", url: "case-studies/index.html", cat: "Resources" },
+      { title: "Career", desc: "Join the Cuttech team", url: "career/index.html", cat: "Company" }
+    ];
+
+    function setupSearch() {
+      var overlay = document.getElementById("ct-search-overlay");
+      var input = document.getElementById("ct-search-input");
+      var results = document.getElementById("ct-search-results");
+      var toggleBtn = document.querySelector(".ct-search-toggle");
+      if (!overlay || !input || !results) return;
+
+      var activeIndex = -1;
+      var debounceTimer = null;
+
+      function openSearch() {
+        overlay.classList.add("open");
+        overlay.setAttribute("aria-hidden", "false");
+        document.body.style.overflow = "hidden";
+        setTimeout(function() { input.focus(); }, 100);
+      }
+
+      function closeSearch() {
+        overlay.classList.remove("open");
+        overlay.setAttribute("aria-hidden", "true");
+        document.body.style.overflow = "";
+        input.value = "";
+        results.innerHTML = "";
+        activeIndex = -1;
+      }
+
+      if (toggleBtn) toggleBtn.addEventListener("click", openSearch);
+      overlay.querySelector(".ct-search-overlay__backdrop").addEventListener("click", closeSearch);
+
+      // Keyboard shortcut Ctrl+K / Cmd+K
+      document.addEventListener("keydown", function(e) {
+        if ((e.metaKey || e.ctrlKey) && e.key === "k") {
+          e.preventDefault();
+          if (overlay.classList.contains("open")) closeSearch();
+          else openSearch();
+          return;
+        }
+        if (e.key === "Escape" && overlay.classList.contains("open")) {
+          closeSearch();
+          return;
+        }
+      });
+
+      function fuzzyMatch(query, text) {
+        query = query.toLowerCase();
+        text = text.toLowerCase();
+        // Simple fuzzy: check if all chars appear in order
+        var qi = 0;
+        for (var ti = 0; ti < text.length && qi < query.length; ti++) {
+          if (text[ti] === query[qi]) qi++;
+        }
+        return qi === query.length;
+      }
+
+      function search(query) {
+        if (!query.trim()) { results.innerHTML = ""; return; }
+        var matches = searchIndex.filter(function(item) {
+          return fuzzyMatch(query, item.title) || fuzzyMatch(query, item.desc) || fuzzyMatch(query, item.cat);
+        });
+
+        if (!matches.length) {
+          results.innerHTML = '<div class="ct-search-overlay__empty">No results found for "' + query.replace(/"/g, "&quot;") + '"</div>';
+          return;
+        }
+
+        // Group by category
+        var groups = {};
+        matches.forEach(function(m) {
+          if (!groups[m.cat]) groups[m.cat] = [];
+          groups[m.cat].push(m);
+        });
+
+        var html = "";
+        var catOrder = ["Solutions", "Products", "Services", "Industries", "Partners", "Company", "Resources"];
+        catOrder.forEach(function(cat) {
+          if (!groups[cat]) return;
+          html += '<div class="ct-search-overlay__group"><div class="ct-search-overlay__group-label">' + cat + '</div>';
+          groups[cat].forEach(function(item) {
+            html += '<a class="ct-search-overlay__item" href="' + item.url + '"><div class="ct-search-overlay__item-title">' + item.title + '</div><div class="ct-search-overlay__item-desc">' + item.desc + '</div></a>';
+          });
+          html += '</div>';
+        });
+        results.innerHTML = html;
+        activeIndex = -1;
+      }
+
+      input.addEventListener("input", function() {
+        clearTimeout(debounceTimer);
+        debounceTimer = setTimeout(function() { search(input.value); }, 200);
+      });
+
+      // Keyboard navigation in results
+      input.addEventListener("keydown", function(e) {
+        var items = results.querySelectorAll(".ct-search-overlay__item");
+        if (!items.length) return;
+        if (e.key === "ArrowDown") {
+          e.preventDefault();
+          activeIndex = Math.min(activeIndex + 1, items.length - 1);
+          updateActiveItem(items);
+        } else if (e.key === "ArrowUp") {
+          e.preventDefault();
+          activeIndex = Math.max(activeIndex - 1, 0);
+          updateActiveItem(items);
+        } else if (e.key === "Enter" && activeIndex >= 0 && items[activeIndex]) {
+          e.preventDefault();
+          items[activeIndex].click();
+        }
+      });
+
+      function updateActiveItem(items) {
+        items.forEach(function(item, i) {
+          item.classList.toggle("active", i === activeIndex);
+        });
+        if (items[activeIndex]) items[activeIndex].scrollIntoView({ block: "nearest" });
+      }
+    }
+    setupSearch();
+
+    /* ============================================================
+       TESTIMONIAL CAROUSEL
+       ============================================================ */
+    function setupTestimonialCarousel() {
+      var carousel = document.getElementById("ct-testimonial-carousel");
+      var track = document.getElementById("ct-testimonial-track");
+      var dotsContainer = document.getElementById("ct-testimonial-dots");
+      if (!carousel || !track) return;
+
+      var slides = Array.from(track.querySelectorAll(".ct-testimonial"));
+      var total = slides.length;
+      if (!total) return;
+
+      var isMobile = window.innerWidth < 768;
+      var perView = isMobile ? 1 : 3;
+      var totalPages = Math.ceil(total / perView);
+      var currentPage = 0;
+      var autoTimer = null;
+      var isPaused = false;
+
+      // Create dots
+      function buildDots() {
+        if (!dotsContainer) return;
+        dotsContainer.innerHTML = "";
+        for (var i = 0; i < totalPages; i++) {
+          var dot = document.createElement("button");
+          dot.className = "ct-testimonial-carousel__dot" + (i === currentPage ? " active" : "");
+          dot.setAttribute("aria-label", "Go to slide " + (i + 1));
+          (function(idx) {
+            dot.addEventListener("click", function() { goTo(idx); });
+          })(i);
+          dotsContainer.appendChild(dot);
+        }
+      }
+
+      function goTo(page) {
+        currentPage = page;
+        if (currentPage >= totalPages) currentPage = 0;
+        if (currentPage < 0) currentPage = totalPages - 1;
+        var pct = (currentPage * perView * (100 / total));
+        track.style.transform = "translateX(-" + pct + "%)";
+        // Update dots
+        if (dotsContainer) {
+          var dots = dotsContainer.querySelectorAll(".ct-testimonial-carousel__dot");
+          dots.forEach(function(d, i) { d.classList.toggle("active", i === currentPage); });
+        }
+      }
+
+      function next() { goTo(currentPage + 1); }
+      function prev() { goTo(currentPage - 1); }
+
+      // Set slide widths
+      slides.forEach(function(s) { s.style.minWidth = (100 / total) + "%"; s.style.flex = "0 0 " + (100 / total) + "%"; });
+
+      buildDots();
+      goTo(0);
+
+      // Arrow buttons
+      var prevBtn = carousel.querySelector(".ct-testimonial-carousel__arrow--prev");
+      var nextBtn = carousel.querySelector(".ct-testimonial-carousel__arrow--next");
+      if (prevBtn) prevBtn.addEventListener("click", function() { prev(); resetAuto(); });
+      if (nextBtn) nextBtn.addEventListener("click", function() { next(); resetAuto(); });
+
+      // Auto-rotate
+      function startAuto() { autoTimer = setInterval(function() { if (!isPaused) next(); }, 5000); }
+      function resetAuto() { clearInterval(autoTimer); startAuto(); }
+      startAuto();
+
+      // Pause on hover
+      carousel.addEventListener("mouseenter", function() { isPaused = true; });
+      carousel.addEventListener("mouseleave", function() { isPaused = false; });
+
+      // Touch swipe
+      var touchStartX = 0;
+      track.addEventListener("touchstart", function(e) { touchStartX = e.touches[0].clientX; }, { passive: true });
+      track.addEventListener("touchend", function(e) {
+        var diff = touchStartX - e.changedTouches[0].clientX;
+        if (Math.abs(diff) > 50) { diff > 0 ? next() : prev(); resetAuto(); }
+      }, { passive: true });
+
+      // Resize handler
+      window.addEventListener("resize", function() {
+        var newMobile = window.innerWidth < 768;
+        if (newMobile !== isMobile) {
+          isMobile = newMobile;
+          perView = isMobile ? 1 : 3;
+          totalPages = Math.ceil(total / perView);
+          buildDots();
+          goTo(0);
+        }
+      });
+    }
+    setupTestimonialCarousel();
+
+    /* ============================================================
+       INDUSTRY EXPLORER INTERACTIVITY
+       ============================================================ */
+    function setupExplorer() {
+      const grid = document.getElementById("ct-explorer-grid");
+      if (!grid) return;
+
+      const rows = grid.querySelectorAll(".ct-explorer__row:not(.ct-explorer__row--header)");
+      const headerCells = grid.querySelectorAll(".ct-explorer__row--header .ct-explorer__cell[data-machine]");
+
+      function clearHighlights() {
+        rows.forEach(r => r.classList.remove("ct-explorer__row--highlight"));
+        grid.querySelectorAll(".ct-explorer__cell--active").forEach(c => c.classList.remove("ct-explorer__cell--active"));
+        grid.querySelectorAll(".ct-explorer__dot--match").forEach(d => d.classList.remove("ct-explorer__dot--match"));
+      }
+
+      // Click on industry row
+      rows.forEach(row => {
+        row.querySelector(".ct-explorer__cell--industry").addEventListener("click", () => {
+          const isActive = row.classList.contains("ct-explorer__row--highlight");
+          clearHighlights();
+          if (!isActive) {
+            row.classList.add("ct-explorer__row--highlight");
+            // Highlight all active dots in this row
+            row.querySelectorAll(".ct-explorer__dot--active").forEach(dot => {
+              dot.classList.add("ct-explorer__dot--match");
+            });
+            // Highlight matching machine columns
+            const machines = Array.from(row.querySelectorAll(".ct-explorer__dot--active")).map(d => d.getAttribute("data-machine"));
+            headerCells.forEach(cell => {
+              if (machines.includes(cell.getAttribute("data-machine"))) {
+                cell.classList.add("ct-explorer__cell--active");
+              }
+            });
+          }
+        });
+      });
+
+      // Click on machine column header
+      headerCells.forEach(cell => {
+        cell.addEventListener("click", () => {
+          const machine = cell.getAttribute("data-machine");
+          const isActive = cell.classList.contains("ct-explorer__cell--active");
+          clearHighlights();
+          if (!isActive) {
+            cell.classList.add("ct-explorer__cell--active");
+            // Highlight rows that have this machine
+            rows.forEach(row => {
+              const hasMachine = row.querySelector(`.ct-explorer__dot--active[data-machine="${machine}"]`);
+              if (hasMachine) {
+                row.classList.add("ct-explorer__row--highlight");
+                hasMachine.classList.add("ct-explorer__dot--match");
+              }
+            });
+          }
+        });
+      });
+    }
+    setupExplorer();
 
     /* ============================================================
        REMOVE PWA / SERVICE WORKER — Block install prompts
@@ -789,6 +1372,13 @@
         location.reload();
       }
     }, { passive: true });
+
+    /* ============================================================
+       DYNAMIC COPYRIGHT YEAR
+       ============================================================ */
+    document.querySelectorAll('.ct-footer__bottom span, .ct-footer__copy').forEach(function(el) {
+      el.innerHTML = el.innerHTML.replace(/©\s*\d{4}/, '© ' + new Date().getFullYear());
+    });
 
   });
 })();

@@ -4,16 +4,580 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>404 — Page Not Found | Cuttech</title>
+  <meta name="description" content="The page you're looking for doesn't exist or has been moved. Let's get you back on track.">
+  <meta name="robots" content="noindex, follow">
   <link rel="icon" href="wp-content/uploads/2024/10/cropped-logo-1-32x32.png">
   <link rel="stylesheet" href="assets/cuttech-redesign.css">
+  <meta name="theme-color" content="#070D19">
+  <meta name="mobile-web-app-capable" content="no">
+  <meta name="apple-mobile-web-app-capable" content="no">
+  <style>
+    /* ============================================================
+       404 PAGE — Enhanced "Forge" Design
+       ============================================================ */
+
+    /* ---------- Hero Section ---------- */
+    .ct-404-hero {
+      position: relative;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      background: var(--hero-bg);
+      overflow: hidden;
+      isolation: isolate;
+    }
+
+    /* Gradient orbs in 404 hero */
+    .ct-404-hero__mesh {
+      position: absolute;
+      inset: 0;
+      z-index: 0;
+      overflow: hidden;
+      pointer-events: none;
+    }
+
+    .ct-404-hero__mesh span {
+      position: absolute;
+      border-radius: 50%;
+      filter: blur(100px);
+      opacity: 0.22;
+      animation: mesh-drift 22s ease-in-out infinite;
+    }
+
+    [data-theme="dark"] .ct-404-hero__mesh span { opacity: 0.12; }
+
+    .ct-404-hero__mesh span:nth-child(1) {
+      width: 600px; height: 600px;
+      background: var(--copper);
+      top: -18%; left: 8%;
+    }
+    .ct-404-hero__mesh span:nth-child(2) {
+      width: 500px; height: 500px;
+      background: var(--steel);
+      bottom: -12%; right: 2%;
+      animation-delay: -7s;
+    }
+    .ct-404-hero__mesh span:nth-child(3) {
+      width: 350px; height: 350px;
+      background: var(--mint);
+      top: 40%; right: 20%;
+      animation-delay: -14s;
+    }
+
+    /* Grid pattern overlay */
+    .ct-404-hero .ct-grid-pattern { opacity: 0.025; }
+
+    /* Bottom fade into page background */
+    .ct-404-hero::after {
+      content: "";
+      position: absolute;
+      inset: auto 0 0;
+      height: 35%;
+      z-index: 1;
+      background: linear-gradient(0deg, var(--bg), transparent);
+      pointer-events: none;
+    }
+
+    /* ---------- Main Content Area ---------- */
+    .ct-404-content {
+      position: relative;
+      z-index: 2;
+      flex: 1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 40px 24px 60px;
+    }
+
+    .ct-404-inner {
+      width: min(720px, 100%);
+      text-align: center;
+    }
+
+    /* ---------- Animated Gear ---------- */
+    .ct-404-gear-wrap {
+      position: relative;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: -20px;
+    }
+
+    .ct-404-gear {
+      width: 80px;
+      height: 80px;
+      animation: gear-spin 20s linear infinite;
+      color: var(--copper);
+      opacity: 0.35;
+      position: absolute;
+    }
+
+    .ct-404-gear--sm {
+      width: 48px;
+      height: 48px;
+      top: -16px;
+      right: -24px;
+      animation-direction: reverse;
+      animation-duration: 14s;
+      opacity: 0.2;
+      color: var(--steel);
+    }
+
+    @keyframes gear-spin {
+      from { transform: rotate(0deg); }
+      to   { transform: rotate(360deg); }
+    }
+
+    /* ---------- 404 Number ---------- */
+    .ct-404-code {
+      position: relative;
+      font-family: 'Outfit', sans-serif;
+      font-size: clamp(110px, 22vw, 220px);
+      font-weight: 900;
+      letter-spacing: -0.06em;
+      line-height: 0.85;
+      background: linear-gradient(135deg, var(--copper-light) 0%, var(--copper) 35%, var(--forge) 65%, var(--spark) 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      animation: float-404 5s ease-in-out infinite;
+      margin: 0;
+      user-select: none;
+    }
+
+    @keyframes float-404 {
+      0%, 100% { transform: translateY(0); }
+      50%      { transform: translateY(-10px); }
+    }
+
+    /* ---------- Text ---------- */
+    .ct-404-inner h1 {
+      color: #fff;
+      font-family: 'Outfit', sans-serif;
+      font-size: clamp(26px, 4.5vw, 42px);
+      font-weight: 900;
+      letter-spacing: -0.03em;
+      margin: 28px 0 14px;
+      line-height: 1.1;
+    }
+
+    .ct-404-inner .ct-404-desc {
+      color: rgba(255,255,255,0.6);
+      font-size: 16px;
+      line-height: 1.7;
+      max-width: 480px;
+      margin: 0 auto 36px;
+    }
+
+    /* ---------- Search ---------- */
+    .ct-404-search {
+      position: relative;
+      max-width: 480px;
+      margin: 0 auto 32px;
+    }
+
+    .ct-404-search input {
+      width: 100%;
+      min-height: 52px;
+      border: 1px solid rgba(255,255,255,0.12);
+      border-radius: var(--r-full);
+      padding: 14px 56px 14px 22px;
+      color: #fff;
+      background: rgba(255,255,255,0.06);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      font-family: 'Inter', sans-serif;
+      font-size: 14px;
+      transition: border-color var(--dur-fast) var(--ease),
+                  box-shadow var(--dur-fast) var(--ease),
+                  background var(--dur-fast) var(--ease);
+    }
+
+    .ct-404-search input::placeholder {
+      color: rgba(255,255,255,0.35);
+    }
+
+    .ct-404-search input:focus {
+      outline: none;
+      border-color: var(--copper);
+      box-shadow: 0 0 0 3px rgba(200,90,24,0.2);
+      background: rgba(255,255,255,0.09);
+    }
+
+    .ct-404-search__icon {
+      position: absolute;
+      right: 18px;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 20px;
+      height: 20px;
+      color: rgba(255,255,255,0.35);
+      pointer-events: none;
+      transition: color var(--dur-fast) var(--ease);
+    }
+
+    .ct-404-search input:focus ~ .ct-404-search__icon {
+      color: var(--copper);
+    }
+
+    /* ---------- Action Buttons ---------- */
+    .ct-404-actions {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-bottom: 56px;
+    }
+
+    /* ---------- Quick Links ---------- */
+    .ct-404-links {
+      border-top: 1px solid rgba(255,255,255,0.08);
+      padding-top: 32px;
+    }
+
+    .ct-404-links__title {
+      color: rgba(255,255,255,0.35);
+      font-family: 'Outfit', sans-serif;
+      font-size: 11px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      margin: 0 0 18px;
+    }
+
+    .ct-404-links__grid {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .ct-404-links__item {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 10px 20px;
+      border: 1px solid rgba(255,255,255,0.1);
+      border-radius: var(--r-full);
+      color: rgba(255,255,255,0.72);
+      font-family: 'Outfit', sans-serif;
+      font-size: 13px;
+      font-weight: 600;
+      background: rgba(255,255,255,0.04);
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
+      transition: background var(--dur-fast) var(--ease),
+                  border-color var(--dur-fast) var(--ease),
+                  color var(--dur-fast) var(--ease),
+                  transform var(--dur-fast) var(--ease-spring);
+    }
+
+    .ct-404-links__item:hover {
+      background: rgba(255,255,255,0.1);
+      border-color: var(--copper);
+      color: #fff;
+      transform: translateY(-2px);
+    }
+
+    .ct-404-links__item svg {
+      width: 16px;
+      height: 16px;
+      opacity: 0.6;
+    }
+
+    .ct-404-links__item:hover svg {
+      opacity: 1;
+    }
+
+    /* ---------- Footer on 404 ---------- */
+    .ct-404-footer {
+      position: relative;
+      z-index: 2;
+      padding: 32px 24px;
+      text-align: center;
+      border-top: 1px solid rgba(255,255,255,0.06);
+      background: rgba(7,13,25,0.6);
+    }
+
+    .ct-404-footer p {
+      color: rgba(255,255,255,0.3);
+      font-size: 13px;
+      margin: 0;
+    }
+
+    .ct-404-footer a {
+      color: var(--copper);
+      transition: color var(--dur-fast) var(--ease);
+    }
+
+    .ct-404-footer a:hover {
+      color: var(--copper-light);
+    }
+
+    /* ---------- Particle dots decoration ---------- */
+    .ct-404-particles {
+      position: absolute;
+      inset: 0;
+      z-index: 0;
+      pointer-events: none;
+      overflow: hidden;
+    }
+
+    .ct-404-particle {
+      position: absolute;
+      width: 3px;
+      height: 3px;
+      border-radius: 50%;
+      background: var(--copper);
+      opacity: 0;
+      animation: particle-fade 6s ease-in-out infinite;
+    }
+
+    @keyframes particle-fade {
+      0%, 100% { opacity: 0; transform: translateY(0) scale(0.5); }
+      50%      { opacity: 0.4; transform: translateY(-30px) scale(1); }
+    }
+
+    /* ---------- Nav Override for dark 404 ---------- */
+    .ct-404-hero .ct-nav {
+      background: rgba(7,13,25,0.65);
+      border-bottom-color: rgba(255,255,255,0.06);
+    }
+
+    .ct-404-hero .ct-brand__name {
+      color: #fff;
+    }
+
+    .ct-404-hero .ct-brand__sub {
+      color: rgba(255,255,255,0.4);
+    }
+
+    .ct-404-hero .ct-nav__links a {
+      color: rgba(255,255,255,0.65);
+    }
+
+    .ct-404-hero .ct-nav__links a:hover {
+      background: rgba(255,255,255,0.08);
+      color: var(--copper);
+    }
+
+    .ct-404-hero .ct-theme-toggle {
+      background: rgba(255,255,255,0.06);
+      border-color: rgba(255,255,255,0.12);
+      color: rgba(255,255,255,0.6);
+    }
+
+    .ct-404-hero .ct-theme-toggle:hover {
+      border-color: var(--copper);
+      color: var(--copper);
+    }
+
+    .ct-404-hero .ct-mobile-toggle {
+      background: rgba(255,255,255,0.06);
+      border-color: rgba(255,255,255,0.12);
+      color: rgba(255,255,255,0.7);
+    }
+
+    /* ---------- Responsive ---------- */
+    @media (max-width: 768px) {
+      .ct-404-code {
+        font-size: clamp(80px, 20vw, 140px);
+      }
+
+      .ct-404-inner h1 {
+        font-size: clamp(22px, 5vw, 32px);
+      }
+
+      .ct-404-inner .ct-404-desc {
+        font-size: 15px;
+      }
+
+      .ct-404-gear {
+        width: 56px;
+        height: 56px;
+      }
+
+      .ct-404-gear--sm {
+        width: 36px;
+        height: 36px;
+        top: -10px;
+        right: -16px;
+      }
+
+      .ct-404-links__grid {
+        gap: 8px;
+      }
+
+      .ct-404-links__item {
+        padding: 8px 16px;
+        font-size: 12px;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .ct-404-actions {
+        flex-direction: column;
+        width: 100%;
+      }
+
+      .ct-404-actions .ct-btn {
+        width: 100%;
+      }
+
+      .ct-404-search input {
+        min-height: 48px;
+        font-size: 13px;
+      }
+    }
+  </style>
 </head>
 <body class="cuttech-redesign">
-  <div class="ct-404">
-    <div class="ct-404__code">404</div>
-    <h1>Page not found</h1>
-    <p>The manufacturing workflow you're looking for doesn't exist or has been moved. Let's get you back on track.</p>
-    <a class="ct-btn ct-btn--primary ct-btn--lg" href="index.html">Back to homepage</a>
-    <a class="ct-btn ct-btn--secondary" href="contact-us/index.html" style="margin-top: 12px;">Contact support</a>
+
+  <!-- ======== NAVIGATION ======== -->
+  <div class="ct-404-hero">
+    <nav class="ct-nav">
+      <div class="ct-nav__inner ct-container">
+        <a href="index.html" class="ct-brand">
+          <span class="ct-brand__mark">CT</span>
+          <span class="ct-brand__text">
+            <span class="ct-brand__name">Cuttech</span>
+            <span class="ct-brand__sub">Advanced Manufacturing</span>
+          </span>
+        </a>
+        <div class="ct-nav__links">
+          <a href="index.html">Home</a>
+          <a href="products/index.html">Products</a>
+          <a href="industries/aerospace/index.html">Industries</a>
+          <a href="contact-us/index.html">Contact</a>
+        </div>
+        <div class="ct-nav__actions">
+          <button class="ct-mobile-toggle" aria-label="Menu">&#9776;</button>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Hero mesh orbs -->
+    <div class="ct-404-hero__mesh">
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+
+    <!-- Grid pattern -->
+    <div class="ct-grid-pattern"></div>
+
+    <!-- Floating particles -->
+    <div class="ct-404-particles">
+      <span class="ct-404-particle" style="left:12%; top:25%; animation-delay:0s;"></span>
+      <span class="ct-404-particle" style="left:28%; top:60%; animation-delay:1.2s;"></span>
+      <span class="ct-404-particle" style="left:55%; top:18%; animation-delay:2.8s;"></span>
+      <span class="ct-404-particle" style="left:72%; top:50%; animation-delay:0.6s;"></span>
+      <span class="ct-404-particle" style="left:88%; top:30%; animation-delay:3.5s;"></span>
+      <span class="ct-404-particle" style="left:40%; top:75%; animation-delay:4.2s;"></span>
+      <span class="ct-404-particle" style="left:18%; top:82%; animation-delay:1.8s;"></span>
+      <span class="ct-404-particle" style="left:65%; top:70%; animation-delay:2.2s;"></span>
+      <span class="ct-404-particle" style="left:82%; top:15%; animation-delay:5s; background:var(--steel);"></span>
+      <span class="ct-404-particle" style="left:48%; top:40%; animation-delay:3.8s; background:var(--steel);"></span>
+      <span class="ct-404-particle" style="left:8%;  top:48%; animation-delay:0.4s; background:var(--spark);"></span>
+      <span class="ct-404-particle" style="left:92%; top:65%; animation-delay:4.8s; background:var(--spark);"></span>
+    </div>
+
+    <!-- ======== MAIN 404 CONTENT ======== -->
+    <div class="ct-404-content">
+      <div class="ct-404-inner ct-animate">
+
+        <!-- Animated Gear + 404 Code -->
+        <div class="ct-404-gear-wrap">
+          <!-- Primary gear SVG -->
+          <svg class="ct-404-gear" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M50 18 L54 10 Q57 4 54 4 L46 4 Q43 4 46 10 L50 18Z" fill="currentColor" opacity="0.9"/>
+            <path d="M50 82 L54 90 Q57 96 54 96 L46 96 Q43 96 46 90 L50 82Z" fill="currentColor" opacity="0.9"/>
+            <path d="M18 50 L10 54 Q4 57 4 54 L4 46 Q4 43 10 46 L18 50Z" fill="currentColor" opacity="0.9"/>
+            <path d="M82 50 L90 54 Q96 57 96 54 L96 46 Q96 43 90 46 L82 50Z" fill="currentColor" opacity="0.9"/>
+            <path d="M27.3 27.3 L21.4 21.4 Q17.1 17.1 19.9 14.3 L24.3 9.9 Q27.1 7.1 27.3 14.3 L27.3 27.3Z" fill="currentColor" opacity="0.7"/>
+            <path d="M72.7 72.7 L78.6 78.6 Q82.9 82.9 80.1 85.7 L75.7 90.1 Q72.9 92.9 72.7 85.7 L72.7 72.7Z" fill="currentColor" opacity="0.7"/>
+            <path d="M27.3 72.7 L21.4 78.6 Q17.1 82.9 14.3 80.1 L9.9 75.7 Q7.1 72.9 14.3 72.7 L27.3 72.7Z" fill="currentColor" opacity="0.7"/>
+            <path d="M72.7 27.3 L78.6 21.4 Q82.9 17.1 85.7 19.9 L90.1 24.3 Q92.9 27.1 85.7 27.3 L72.7 27.3Z" fill="currentColor" opacity="0.7"/>
+            <circle cx="50" cy="50" r="26" stroke="currentColor" stroke-width="3" fill="none" opacity="0.5"/>
+            <circle cx="50" cy="50" r="10" stroke="currentColor" stroke-width="2" fill="none" opacity="0.4"/>
+          </svg>
+          <!-- Secondary small gear -->
+          <svg class="ct-404-gear ct-404-gear--sm" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M50 20 L53 12 Q55 6 53 6 L47 6 Q45 6 47 12 L50 20Z" fill="currentColor" opacity="0.8"/>
+            <path d="M50 80 L53 88 Q55 94 53 94 L47 94 Q45 94 47 88 L50 80Z" fill="currentColor" opacity="0.8"/>
+            <path d="M20 50 L12 53 Q6 55 6 53 L6 47 Q6 45 12 47 L20 50Z" fill="currentColor" opacity="0.8"/>
+            <path d="M80 50 L88 53 Q94 55 94 53 L94 47 Q94 45 88 47 L80 50Z" fill="currentColor" opacity="0.8"/>
+            <circle cx="50" cy="50" r="22" stroke="currentColor" stroke-width="3" fill="none" opacity="0.4"/>
+            <circle cx="50" cy="50" r="8" stroke="currentColor" stroke-width="2" fill="none" opacity="0.35"/>
+          </svg>
+          <div class="ct-404-code" aria-label="404">404</div>
+        </div>
+
+        <!-- Heading -->
+        <h1>Page not found</h1>
+
+        <!-- Description -->
+        <p class="ct-404-desc">
+          The manufacturing workflow you're looking for doesn't exist or has been moved. 
+          Let's get you back on track — try searching or visit one of our popular pages.
+        </p>
+
+        <!-- Search -->
+        <div class="ct-404-search">
+          <input type="search" placeholder="Search Cuttech..." aria-label="Search Cuttech">
+          <svg class="ct-404-search__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="11" cy="11" r="8"/>
+            <line x1="21" y1="21" x2="16.65" y2="16.65"/>
+          </svg>
+        </div>
+
+        <!-- Action Buttons -->
+        <div class="ct-404-actions">
+          <a href="index.html" class="ct-btn ct-btn--primary ct-btn--lg">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+            Back to homepage
+          </a>
+          <a href="contact-us/index.html" class="ct-btn ct-btn--ghost ct-btn--lg">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+            Contact support
+          </a>
+        </div>
+
+        <!-- Quick Links -->
+        <div class="ct-404-links">
+          <p class="ct-404-links__title">Popular Pages</p>
+          <div class="ct-404-links__grid">
+            <a href="products/index.html" class="ct-404-links__item">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"/><path d="M16 7V5a4 4 0 0 0-8 0v2"/></svg>
+              Products
+            </a>
+            <a href="industries/aerospace/index.html" class="ct-404-links__item">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg>
+              Industries
+            </a>
+            <a href="solutions/index.html" class="ct-404-links__item">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 2 7 12 12 22 7 12 2"/><polyline points="2 17 12 22 22 17"/><polyline points="2 12 12 17 22 12"/></svg>
+              Solutions
+            </a>
+            <a href="contact-us/index.html" class="ct-404-links__item">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+              Contact
+            </a>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- Minimal footer -->
+    <footer class="ct-404-footer">
+      <p>&copy; 2025 <a href="index.html">Cuttech</a> &mdash; Advanced Manufacturing Solutions</p>
+    </footer>
   </div>
+
+  <!-- Scripts -->
+  <script src="assets/cuttech-inner.js"></script>
 </body>
 </html>

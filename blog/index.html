@@ -3,142 +3,13 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Blog | Manufacturing Insights — Cuttech</title>
-  <meta name="description" content="Insights, case studies and technology updates from the manufacturing frontier — tube bending, laser QC, CAD/CAM, and precision engineering from Cuttech.">
-  <link rel="icon" href="../wp-content/uploads/2024/10/cropped-logo-1-32x32.png">
-  <link rel="stylesheet" href="../assets/cuttech-redesign.css">
-  <link rel="preload" href="../assets/cuttech-redesign.css" as="style">
-  <link rel="preload" href="../assets/cuttech-inner.js" as="script">
-  <style>
-    .ct-page-hero {
-      background:
-        linear-gradient(115deg, rgba(7,13,25,0.95), rgba(198,40,40,0.65)),
-        url("../wp-content/uploads/2025/01/Manufacturing-Automation.jpg") center / cover no-repeat;
-    }
-
-    /* Blog Grid */
-    .ct-blog-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 24px;
-    }
-
-    /* Blog Card */
-    .ct-blog-card {
-      border: 1px solid var(--border);
-      border-radius: var(--r-xl);
-      overflow: hidden;
-      background: var(--surface);
-      box-shadow: var(--shadow-xs);
-      transition: transform var(--dur) var(--ease-spring),
-                  box-shadow var(--dur) var(--ease),
-                  border-color var(--dur) var(--ease);
-      position: relative;
-      display: flex;
-      flex-direction: column;
-    }
-
-    .ct-blog-card::before {
-      content: "";
-      position: absolute;
-      top: 0; left: 0; right: 0;
-      height: 3px;
-      background: linear-gradient(90deg, var(--copper), var(--forge));
-      opacity: 0;
-      transition: opacity 0.3s var(--ease);
-      z-index: 1;
-    }
-
-    .ct-blog-card:hover {
-      transform: translateY(-8px);
-      box-shadow: var(--shadow-lg);
-      border-color: var(--copper);
-    }
-
-    .ct-blog-card:hover::before { opacity: 1; }
-
-    .ct-blog-card__img {
-      overflow: hidden;
-      position: relative;
-    }
-
-    .ct-blog-card__img::after {
-      content: "";
-      position: absolute;
-      inset: 0;
-      background: linear-gradient(0deg, rgba(0,0,0,0.04), transparent 50%);
-      pointer-events: none;
-    }
-
-    .ct-blog-card__img img {
-      width: 100%;
-      aspect-ratio: 16 / 10;
-      object-fit: cover;
-      transition: transform 0.6s var(--ease);
-      display: block;
-    }
-
-    .ct-blog-card:hover .ct-blog-card__img img {
-      transform: scale(1.06);
-    }
-
-    .ct-blog-card__body {
-      padding: 24px 26px 28px;
-      display: flex;
-      flex-direction: column;
-      flex: 1;
-    }
-
-    .ct-blog-card__date {
-      display: inline-block;
-      color: var(--copper);
-      font-family: 'Outfit', sans-serif;
-      font-size: 11px;
-      font-weight: 800;
-      text-transform: uppercase;
-      letter-spacing: 0.08em;
-      margin-bottom: 12px;
-    }
-
-    .ct-blog-card h3 {
-      margin: 0 0 14px;
-      font-size: 20px;
-      line-height: 1.25;
-      letter-spacing: -0.02em;
-      color: var(--fg);
-    }
-
-    .ct-blog-card p {
-      margin: 0;
-      color: var(--muted);
-      line-height: 1.6;
-      font-size: 14px;
-      flex: 1;
-    }
-
-    .ct-blog-card__link {
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-      margin-top: 18px;
-      color: var(--copper);
-      font-family: 'Outfit', sans-serif;
-      font-weight: 700;
-      font-size: 14px;
-      transition: gap 0.3s var(--ease);
-    }
-
-    .ct-blog-card__link:hover { gap: 12px; }
-    .ct-blog-card__link::after { content: "\2192"; font-size: 16px; }
-
-    /* Responsive */
-    @media (max-width: 900px) {
-      .ct-blog-grid { grid-template-columns: repeat(2, 1fr); }
-    }
-    @media (max-width: 600px) {
-      .ct-blog-grid { grid-template-columns: 1fr; }
-    }
-  </style>
+  <title>Blog | Insights & Updates | Cuttech</title>
+  <meta name="description" content="Manufacturing insights, technology updates and case studies from Cuttech — covering CNC automation, laser cutting, tube bending and smart factory integration.">
+  <link rel="canonical" href="index.html">
+  <link rel="icon" href="../../wp-content/uploads/2024/10/cropped-logo-1-32x32.webp">
+  <link rel="stylesheet" href="../assets/cuttech-redesign.min.css">
+  <link rel="preload" href="../assets/cuttech-redesign.min.css" as="style">
+  <link rel="preload" href="../assets/cuttech-inner.min.js" as="script">
 </head>
 <body class="cuttech-redesign">
   <div class="ct-site">
@@ -147,7 +18,10 @@
       <div class="ct-nav__inner ct-container">
         <a class="ct-brand" href="../index.html" aria-label="Cuttech home">
           <span class="ct-brand__mark">CT</span>
-          <span class="ct-brand__text"><span class="ct-brand__name">Cuttech</span><span class="ct-brand__sub">Manufacturing technology</span></span>
+          <span class="ct-brand__text">
+            <span class="ct-brand__name">Cuttech</span>
+            <span class="ct-brand__sub">Manufacturing technology</span>
+          </span>
         </a>
         <nav class="ct-nav__links" aria-label="Primary navigation">
           <a href="../index.html#solutions">Solutions</a>
@@ -182,87 +56,164 @@
         <div class="ct-grid-pattern" aria-hidden="true"></div>
         <div class="ct-page-hero__inner">
           <span class="ct-eyebrow">Blog</span>
-          <h1>Insights from the <span style="color: var(--copper-light);">manufacturing</span> frontier.</h1>
-          <p>Technology updates, application deep-dives and industry perspectives from the Cuttech team and our global partners.</p>
+          <h1>Insights & <span style="color: var(--copper-light);">Updates</span></h1>
+          <p>Manufacturing insights, technology deep-dives and real-world case studies from the cutting floor.</p>
         </div>
       </section>
 
-      <!-- Blog Grid -->
-      <section class="ct-section">
+      <!-- Blog Listing -->
+      <section class="ct-section ct-section--tight">
         <div class="ct-container">
-          <div class="ct-section__head ct-animate">
-            <div>
-              <h2>Latest <span class="ct-copper">articles</span></h2>
-              <p>Practical insights from the intersection of technology and production.</p>
-            </div>
+
+          <!-- Category Filter -->
+          <div class="ct-blog-filter">
+            <button class="ct-blog-filter__btn ct-blog-filter__btn--active" data-category="all">All</button>
+            <button class="ct-blog-filter__btn" data-category="manufacturing">Manufacturing</button>
+            <button class="ct-blog-filter__btn" data-category="technology">Technology</button>
+            <button class="ct-blog-filter__btn" data-category="case-study">Case Study</button>
+            <button class="ct-blog-filter__btn" data-category="industry">Industry</button>
           </div>
 
+          <!-- Blog Grid -->
           <div class="ct-blog-grid ct-stagger">
-            <!-- Card 1: CSM Tube Bending -->
-            <article class="ct-blog-card ct-animate">
-              <div class="ct-blog-card__img">
-                <img src="../wp-content/uploads/2025/01/CSM-Machinery.jpg" alt="CSM tube bending machinery for precision engineering" loading="lazy">
+
+            <!-- Post 1 -->
+            <article class="ct-blog-card ct-animate" data-category="manufacturing">
+              <div class="ct-blog-card__header">
+                <span class="ct-blog-card__tag">Manufacturing</span>
               </div>
               <div class="ct-blog-card__body">
-                <span class="ct-blog-card__date">Dec 15, 2024</span>
-                <h3>CSM Tube Bending: A Basis for Innovative Precision Engineering</h3>
-                <p>How CSM tube bending technology is setting new standards for precision engineering and innovative manufacturing across India.</p>
-                <a class="ct-blog-card__link" href="csm-tube-bending-association-a-basis-for-innovative-precision-engineering-and-manufacturing/index.html">Read article</a>
+                <h3>5 Ways CNC Automation Reduces Material Waste</h3>
+                <p>From optimized nesting algorithms to real-time process monitoring, CNC automation offers practical paths to cutting waste on the production floor.</p>
+              </div>
+              <div class="ct-blog-card__meta">
+                <div class="ct-blog-card__author">
+                  <div class="ct-blog-card__avatar">RK</div>
+                  <span>Rajesh K.</span>
+                </div>
+                <span class="ct-blog-card__date">Jan 15, 2026</span>
+                <span class="ct-blog-card__read-time">6 min read</span>
               </div>
             </article>
 
-            <!-- Card 2: Gartex Exhibition -->
-            <article class="ct-blog-card ct-animate">
-              <div class="ct-blog-card__img">
-                <img src="../wp-content/uploads/2025/01/Automatic-Cutting-Machines.jpg" alt="Gartex Exhibition showcasing manufacturing innovation" loading="lazy">
+            <!-- Post 2 -->
+            <article class="ct-blog-card ct-animate" data-category="technology">
+              <div class="ct-blog-card__header">
+                <span class="ct-blog-card__tag ct-blog-card__tag--technology">Technology</span>
               </div>
               <div class="ct-blog-card__body">
-                <span class="ct-blog-card__date">Nov 20, 2024</span>
-                <h3>Gartex Exhibition: Showcasing Manufacturing Innovation</h3>
-                <p>Cuttech at Gartex — live demos, technology previews and conversations about the future of Indian manufacturing.</p>
-                <a class="ct-blog-card__link" href="gartex-exhibition/index.html">Read article</a>
+                <h3>Choosing the Right Laser Cutting System for Sheet Metal</h3>
+                <p>CO2 vs. fiber, power ratings, table sizes and auto-focus options — a practical guide for fabrication teams evaluating laser cutting investments.</p>
+              </div>
+              <div class="ct-blog-card__meta">
+                <div class="ct-blog-card__author">
+                  <div class="ct-blog-card__avatar">PS</div>
+                  <span>Priya S.</span>
+                </div>
+                <span class="ct-blog-card__date">Dec 8, 2025</span>
+                <span class="ct-blog-card__read-time">8 min read</span>
               </div>
             </article>
 
-            <!-- Card 3: Virtek Shell Be -->
-            <article class="ct-blog-card ct-animate">
-              <div class="ct-blog-card__img">
-                <img src="../wp-content/uploads/2025/01/Virtek-Laser-QC.jpg" alt="Virtek precision laser projection technology" loading="lazy">
+            <!-- Post 3 -->
+            <article class="ct-blog-card ct-animate" data-category="case-study">
+              <div class="ct-blog-card__header">
+                <span class="ct-blog-card__tag ct-blog-card__tag--case-study">Case Study</span>
               </div>
               <div class="ct-blog-card__body">
-                <span class="ct-blog-card__date">Nov 12, 2024</span>
-                <h3>Discover the Future of Precision with Shell Be for Virtek</h3>
-                <p>Exploring how Shell Be for Virtek by Cuttech brings next-generation precision measurement and laser projection to production floors.</p>
-                <a class="ct-blog-card__link" href="discover-the-future-of-precision-with-shell-be-for-virtek-by-cuttech/index.html">Read article</a>
+                <h3>How Virtek Laser QC Transformed Our QA Process</h3>
+                <p>A sheet metal fabrication team reduced first-article inspection from 4 hours to under 20 minutes — here's the full implementation story.</p>
+              </div>
+              <div class="ct-blog-card__meta">
+                <div class="ct-blog-card__author">
+                  <div class="ct-blog-card__avatar">AM</div>
+                  <span>Anil M.</span>
+                </div>
+                <span class="ct-blog-card__date">Nov 22, 2025</span>
+                <span class="ct-blog-card__read-time">5 min read</span>
               </div>
             </article>
 
-            <!-- Card 4: Hexagon Radan -->
-            <article class="ct-blog-card ct-animate">
-              <div class="ct-blog-card__img">
-                <img src="../wp-content/uploads/2025/01/CNC-Machinery.jpg" alt="Hexagon Radan software for sheet metal workflows" loading="lazy">
+            <!-- Post 4 -->
+            <article class="ct-blog-card ct-animate" data-category="industry">
+              <div class="ct-blog-card__header">
+                <span class="ct-blog-card__tag ct-blog-card__tag--industry">Industry</span>
               </div>
               <div class="ct-blog-card__body">
-                <span class="ct-blog-card__date">Oct 28, 2024</span>
-                <h3>Hexagon Radan Software for Sheet Metal Workflows</h3>
-                <p>How Hexagon Radan CAD/CAM software streamlines sheet metal fabrication — from nesting and programming to cutting and bending.</p>
-                <a class="ct-blog-card__link" href="hexagoan-radan-software/index.html">Read article</a>
+                <h3>The Future of Textile Automation in India</h3>
+                <p>India's textile sector is modernizing faster than ever. Here's how automated cutting and spreading systems are reshaping production floors nationwide.</p>
+              </div>
+              <div class="ct-blog-card__meta">
+                <div class="ct-blog-card__author">
+                  <div class="ct-blog-card__avatar">SG</div>
+                  <span>Sunita G.</span>
+                </div>
+                <span class="ct-blog-card__date">Oct 30, 2025</span>
+                <span class="ct-blog-card__read-time">7 min read</span>
               </div>
             </article>
+
+            <!-- Post 5 -->
+            <article class="ct-blog-card ct-animate" data-category="technology">
+              <div class="ct-blog-card__header">
+                <span class="ct-blog-card__tag ct-blog-card__tag--technology">Technology</span>
+              </div>
+              <div class="ct-blog-card__body">
+                <h3>CSM Tube Bending: From Prototype to Production</h3>
+                <p>Multi-radius CNC bending bridges the gap between prototyping and volume production for automotive and precision engineering teams.</p>
+              </div>
+              <div class="ct-blog-card__meta">
+                <div class="ct-blog-card__author">
+                  <div class="ct-blog-card__avatar">VK</div>
+                  <span>Vikram K.</span>
+                </div>
+                <span class="ct-blog-card__date">Sep 15, 2025</span>
+                <span class="ct-blog-card__read-time">6 min read</span>
+              </div>
+            </article>
+
+            <!-- Post 6 -->
+            <article class="ct-blog-card ct-animate" data-category="manufacturing">
+              <div class="ct-blog-card__header">
+                <span class="ct-blog-card__tag">Manufacturing</span>
+              </div>
+              <div class="ct-blog-card__body">
+                <h3>Smart Factory Integration: Connecting Your Cutting Systems</h3>
+                <p>How to connect cutting, inspection and material handling systems into a unified smart factory workflow with real-time data and minimal manual intervention.</p>
+              </div>
+              <div class="ct-blog-card__meta">
+                <div class="ct-blog-card__author">
+                  <div class="ct-blog-card__avatar">DR</div>
+                  <span>Deepak R.</span>
+                </div>
+                <span class="ct-blog-card__date">Aug 28, 2025</span>
+                <span class="ct-blog-card__read-time">9 min read</span>
+              </div>
+            </article>
+
           </div>
+
+          <!-- Newsletter -->
+          <div class="ct-newsletter ct-animate">
+            <h2>Stay ahead of the <span class="ct-copper">curve</span>.</h2>
+            <p>Get manufacturing insights, product updates and industry analysis delivered to your inbox.</p>
+            <form class="ct-newsletter__form" onsubmit="event.preventDefault(); this.querySelector('input').value=''; alert('Thank you for subscribing!');">
+              <input class="ct-newsletter__input" type="email" placeholder="Enter your email" required aria-label="Email address">
+              <button class="ct-btn ct-btn--primary" type="submit">Subscribe</button>
+            </form>
+          </div>
+
         </div>
       </section>
 
       <!-- CTA -->
-      <section class="ct-section ct-section--tight">
-        <div class="ct-container">
-          <div class="ct-cta ct-animate-scale">
-            <div>
-              <h2>Want to discuss a manufacturing challenge?</h2>
-              <p>Share your process, material and capacity target. Cuttech can recommend a practical route forward.</p>
-            </div>
-            <a class="ct-btn ct-btn--primary ct-btn--lg" href="../contact-us/index.html">Start enquiry</a>
+      <section class="ct-section">
+        <div class="ct-cta ct-animate-scale">
+          <div>
+            <h2>Have a question about our technology?</h2>
+            <p>Our specialists can walk you through capabilities, pricing and implementation timelines.</p>
           </div>
+          <a class="ct-btn ct-btn--primary ct-btn--lg" href="../contact-us/index.html">Talk to a specialist</a>
         </div>
       </section>
     </main>
@@ -271,17 +222,45 @@
     <footer class="ct-footer">
       <div class="ct-footer__inner ct-container">
         <div>
-          <div class="ct-footer__brand"><span class="ct-footer__brand-mark">CT</span><span class="ct-footer__brand-name">Cuttech</span></div>
+          <div class="ct-footer__brand">
+            <span class="ct-footer__brand-mark">CT</span>
+            <span class="ct-footer__brand-name">Cuttech</span>
+          </div>
           <p class="ct-footer__desc">Advanced manufacturing, cutting and automation solutions for Indian production floors.</p>
         </div>
-        <div class="ct-footer__col"><h4>Solutions</h4><a href="../automatic-cutting-machines/index.html">Automatic Cutting</a><a href="../virtek-laser-qc/index.html">Laser QC &amp; Projection</a><a href="../advanced-manufacturing-solutions/index.html">Manufacturing Cells</a></div>
-        <div class="ct-footer__col"><h4>Company</h4><a href="../about-us/index.html">About Cuttech</a><a href="../products/index.html">Products</a><a href="../contact-us/index.html">Contact</a><a href="tel:+919270307505">+91 92703 07505</a></div>
-        <div class="ct-footer__bottom"><span>&copy; 2026 Cuttech. All rights reserved.</span><span>Manufacturing technology for modern production</span></div>
+        <div class="ct-footer__col">
+          <h4>Solutions</h4>
+          <a href="../automatic-cutting-machines/index.html">Automatic Cutting</a>
+          <a href="../virtek-laser-qc/index.html">Laser QC &amp; Projection</a>
+          <a href="../advanced-manufacturing-solutions/index.html">Manufacturing Cells</a>
+        </div>
+        <div class="ct-footer__col">
+          <h4>Company</h4>
+          <a href="../about-us/index.html">About Cuttech</a>
+          <a href="../products/index.html">Products</a>
+          <a href="index.html">Blog</a>
+          <a href="../contact-us/index.html">Contact</a>
+          <a href="tel:+919270307505">+91 92703 07505</a>
+        </div>
+        <div class="ct-footer__bottom">
+          <span>&copy; 2026 Cuttech. All rights reserved.</span>
+          <span>Manufacturing technology for modern production</span>
+        </div>
       </div>
     </footer>
+
+    <!-- Sticky Contact -->
+    <div class="ct-sticky-desktop" aria-label="Quick contact">
+      <a class="ct-btn ct-btn--primary" href="../contact-us/index.html">Get a Quote</a>
+      <a class="ct-btn ct-btn--secondary" href="tel:+919811502692">Call +91 98115 02692</a>
+    </div>
+    <div class="ct-sticky-mobile" aria-label="Quick mobile contact">
+      <a class="ct-btn ct-btn--primary" href="../contact-us/index.html">Get a Quote</a>
+      <a class="ct-btn ct-btn--whatsapp" href="https://wa.me/919270307505">WhatsApp</a>
+    </div>
   </div>
 
-  <script src="../assets/cuttech-tracking.js"></script>
-  <script src="../assets/cuttech-inner.js"></script>
+  <script src="../assets/cuttech-tracking.min.js"></script>
+  <script src="../assets/cuttech-inner.min.js"></script>
 </body>
 </html>
