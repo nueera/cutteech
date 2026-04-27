@@ -1,6 +1,6 @@
 /**
- * Cuttech "FORGE" Inner Pages
- * Theme Toggle + Scroll Animations + Nav Effects + Back to Top
+ * Cuttech Premium Corporate — Inner Pages
+ * Theme Toggle + Scroll Animations + Nav Effects + Back to Top + Logo
  */
 (function () {
   "use strict";
@@ -26,6 +26,12 @@
     setTimeout(function () { html.classList.remove("theme-transitioning"); }, 500);
   }
 
+  /* Prevent PWA install prompt */
+  window.addEventListener("beforeinstallprompt", function(e) {
+    e.preventDefault();
+    e.stopPropagation();
+  });
+
   initTheme();
 
   /* ---- SVG Icons ---- */
@@ -34,6 +40,28 @@
   var arrowUpSVG = '<svg viewBox="0 0 24 24"><line x1="12" y1="19" x2="12" y2="5"/><polyline points="5 12 12 5 19 12"/></svg>';
 
   document.addEventListener("DOMContentLoaded", function () {
+    /* ---- Replace text brand marks with logo ---- */
+    document.querySelectorAll(".ct-brand__mark, .ct-footer__brand-mark").forEach(function(mark) {
+      if (mark.querySelector("img")) return; // already has image
+      var text = mark.textContent.trim();
+      if (text === "CT" || text === "") {
+        var img = document.createElement("img");
+        // Determine relative path based on depth
+        var depth = (window.location.pathname.match(/\//g) || []).length - 1;
+        var basePath = "";
+        for (var i = 0; i < depth; i++) basePath += "../";
+        if (!basePath) basePath = "./";
+        img.src = basePath + "assets/cuttech-logo.png";
+        img.alt = "Cuttech";
+        img.onerror = function() { 
+          mark.innerHTML = "CT"; 
+          mark.classList.add("ct-brand__mark--text", "ct-footer__brand-mark--text"); 
+        };
+        mark.innerHTML = "";
+        mark.appendChild(img);
+      }
+    });
+
     /* ---- Inject theme toggle into nav ---- */
     var navActions = document.querySelector(".ct-nav__actions");
     if (navActions) {
@@ -284,30 +312,27 @@
       });
     });
 
-    /* ---- PWA Registration ---- */
-    if ("serviceWorker" in navigator) {
-      navigator.serviceWorker.register("../sw.js").catch(function() {});
+    /* ---- Inject breadcrumb if not present ---- */
+    var pageHero = document.querySelector(".ct-page-hero__inner");
+    if (pageHero && !document.querySelector(".ct-breadcrumb")) {
+      var bc = document.createElement("div");
+      bc.className = "ct-breadcrumb";
+      var pathParts = window.location.pathname.replace(/\/index\.html$/, "").split("/").filter(Boolean);
+      var bcHTML = '<a href="' + (pathParts.length > 1 ? "../" : "./") + 'index.html">Home</a>';
+      var accumulated = "";
+      for (var i = 0; i < pathParts.length; i++) {
+        bcHTML += ' <span class="ct-breadcrumb__sep">/</span> ';
+        accumulated += pathParts[i] + "/";
+        if (i === pathParts.length - 1) {
+          var name = pathParts[i].replace(/-/g, " ").replace(/\b\w/g, function(c) { return c.toUpperCase(); });
+          bcHTML += '<span>' + name + '</span>';
+        } else {
+          bcHTML += '<a href="' + accumulated + 'index.html">' + pathParts[i].replace(/-/g, " ") + '</a>';
+        }
+      }
+      bc.innerHTML = bcHTML;
+      pageHero.insertBefore(bc, pageHero.firstChild);
     }
 
-    /* ---- Bottom Mobile Nav ---- */
-    var basePath = "../";
-    var bnav = document.createElement("div");
-    bnav.className = "ct-bottom-nav";
-    bnav.innerHTML = '<div class="ct-bottom-nav__inner"><a class="ct-bottom-nav__item" href="' + basePath + 'index.html"><svg viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>Home</a><a class="ct-bottom-nav__item" href="' + basePath + 'products/index.html"><svg viewBox="0 0 24 24"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg>Products</a><a class="ct-bottom-nav__item" href="' + basePath + 'contact-us/index.html"><svg viewBox="0 0 24 24"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>Contact</a><a class="ct-bottom-nav__item" href="' + basePath + 'about-us/index.html"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><line x1="12" y1="16" x2="12" y2="12"/><line x1="12" y1="8" x2="12.01" y2="8"/></svg>About</a><a class="ct-bottom-nav__item" href="tel:+919270307505"><svg viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>Call</a></div>';
-    document.body.appendChild(bnav);
-
-    /* ---- Pull to Refresh ---- */
-    var tsy = 0;
-    var pulling = false;
-    document.addEventListener("touchstart", function(e) {
-      if (window.scrollY === 0) tsy = e.touches[0].clientY;
-    }, { passive: true });
-    document.addEventListener("touchmove", function(e) {
-      var diff = e.touches[0].clientY - tsy;
-      if (diff > 80 && window.scrollY === 0 && !pulling) {
-        pulling = true;
-        location.reload();
-      }
-    }, { passive: true });
   });
 })();
