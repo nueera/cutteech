@@ -556,5 +556,248 @@
     setupCounters();
     setupMobileMenu();
     setupNavHighlight();
+
+    /* ============================================================
+       3D CARD TILT EFFECT
+       ============================================================ */
+    function setupTiltCards() {
+      const cards = document.querySelectorAll(".ct-card, .ct-trust-item");
+      cards.forEach(card => {
+        card.classList.add("ct-tilt");
+        card.addEventListener("mousemove", e => {
+          const rect = card.getBoundingClientRect();
+          const x = e.clientX - rect.left;
+          const y = e.clientY - rect.top;
+          const centerX = rect.width / 2;
+          const centerY = rect.height / 2;
+          const rotateX = ((y - centerY) / centerY) * -4;
+          const rotateY = ((x - centerX) / centerX) * 4;
+          card.style.transform = `perspective(800px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) translateY(-6px)`;
+        });
+        card.addEventListener("mouseleave", () => {
+          card.style.transform = "";
+        });
+      });
+    }
+    setupTiltCards();
+
+    /* ============================================================
+       TEXT REVEAL ANIMATION
+       ============================================================ */
+    function setupTextReveal() {
+      const headings = document.querySelectorAll(".ct-hero h1, .ct-page-hero h1");
+      headings.forEach(h => {
+        const text = h.innerHTML;
+        let charIndex = 0;
+        const wrapped = text.replace(/>([^<]+)</g, (match, content) => {
+          const chars = content.split("").map(ch => {
+            if (ch === " ") return " ";
+            charIndex++;
+            return `<span class="ct-reveal__char" style="animation-delay:${charIndex * 0.03}s">${ch}</span>`;
+          }).join("");
+          return `>${chars}<`;
+        });
+        h.innerHTML = wrapped;
+      });
+    }
+    setupTextReveal();
+
+    /* ============================================================
+       PAGE TRANSITIONS
+       ============================================================ */
+    const transition = document.createElement("div");
+    transition.className = "ct-page-transition";
+    document.body.appendChild(transition);
+
+    document.querySelectorAll("a[href]").forEach(link => {
+      const href = link.getAttribute("href");
+      if (!href || href.startsWith("#") || href.startsWith("tel:") || href.startsWith("mailto:") || href.startsWith("http") || href.startsWith("wa.me")) return;
+      link.addEventListener("click", e => {
+        e.preventDefault();
+        transition.classList.add("active");
+        setTimeout(() => { window.location.href = href; }, 300);
+      });
+    });
+
+    /* ============================================================
+       IMAGE LIGHTBOX
+       ============================================================ */
+    function setupLightbox() {
+      const lb = document.createElement("div");
+      lb.className = "ct-lightbox";
+      lb.id = "ct-lightbox";
+      lb.innerHTML = `
+        <button class="ct-lightbox__close" aria-label="Close">&times;</button>
+        <button class="ct-lightbox__nav ct-lightbox__nav--prev" aria-label="Previous">&#8249;</button>
+        <button class="ct-lightbox__nav ct-lightbox__nav--next" aria-label="Next">&#8250;</button>
+        <img class="ct-lightbox__img" id="ct-lightbox-img" src="" alt="">
+        <div class="ct-lightbox__caption" id="ct-lightbox-caption"></div>
+      `;
+      document.body.appendChild(lb);
+
+      let galleryImages = [];
+      let currentIndex = 0;
+
+      function openLightbox(src, alt, images) {
+        galleryImages = images || [src];
+        currentIndex = galleryImages.indexOf(src);
+        if (currentIndex < 0) currentIndex = 0;
+        document.getElementById("ct-lightbox-img").src = src;
+        document.getElementById("ct-lightbox-caption").textContent = alt || "";
+        lb.classList.add("open");
+        document.body.style.overflow = "hidden";
+      }
+
+      function closeLightbox() {
+        lb.classList.remove("open");
+        document.body.style.overflow = "";
+      }
+
+      lb.querySelector(".ct-lightbox__close").addEventListener("click", closeLightbox);
+      lb.addEventListener("click", e => { if (e.target === lb) closeLightbox(); });
+
+      lb.querySelector(".ct-lightbox__nav--prev").addEventListener("click", () => {
+        currentIndex = (currentIndex - 1 + galleryImages.length) % galleryImages.length;
+        document.getElementById("ct-lightbox-img").src = galleryImages[currentIndex];
+      });
+
+      lb.querySelector(".ct-lightbox__nav--next").addEventListener("click", () => {
+        currentIndex = (currentIndex + 1) % galleryImages.length;
+        document.getElementById("ct-lightbox-img").src = galleryImages[currentIndex];
+      });
+
+      document.addEventListener("keydown", e => {
+        if (!lb.classList.contains("open")) return;
+        if (e.key === "Escape") closeLightbox();
+        if (e.key === "ArrowLeft") lb.querySelector(".ct-lightbox__nav--prev").click();
+        if (e.key === "ArrowRight") lb.querySelector(".ct-lightbox__nav--next").click();
+      });
+
+      /* Attach to gallery items and card images */
+      document.querySelectorAll(".ct-gallery__item img, .ct-card img, .ct-hero__panel img").forEach(img => {
+        img.style.cursor = "pointer";
+        img.addEventListener("click", () => {
+          const allImgs = Array.from(document.querySelectorAll(".ct-card img, .ct-gallery__item img")).map(i => i.src);
+          openLightbox(img.src, img.alt, allImgs);
+        });
+      });
+    }
+    setupLightbox();
+
+    /* ============================================================
+       LAZY LOADING ENHANCEMENT
+       ============================================================ */
+    function setupLazyLoad() {
+      const images = document.querySelectorAll("img[loading='lazy']");
+      if (!images.length || !("IntersectionObserver" in window)) return;
+      images.forEach(img => {
+        img.style.opacity = "0";
+        img.style.transition = "opacity 0.5s ease";
+        img.addEventListener("load", () => { img.style.opacity = "1"; });
+        if (img.complete) img.style.opacity = "1";
+      });
+    }
+    setupLazyLoad();
+
+    /* ============================================================
+       FORM VALIDATION
+       ============================================================ */
+    document.querySelectorAll(".ct-form").forEach(form => {
+      form.addEventListener("submit", e => {
+        e.preventDefault();
+        let valid = true;
+        form.querySelectorAll("input[required], textarea[required], select[required]").forEach(field => {
+          if (!field.checkValidity()) {
+            valid = false;
+            field.style.borderColor = "#ef4444";
+            field.style.boxShadow = "0 0 0 3px rgba(239,68,68,0.1)";
+          } else {
+            field.style.borderColor = "";
+            field.style.boxShadow = "";
+          }
+        });
+        if (valid) {
+          const successEl = form.querySelector(".ct-form__success") || (() => {
+            const el = document.createElement("div");
+            el.className = "ct-form__success";
+            el.textContent = "Thank you! Your enquiry has been submitted. We'll respond within 24 hours.";
+            form.appendChild(el);
+            return el;
+          })();
+          successEl.classList.add("visible");
+          form.querySelectorAll("input, textarea, select").forEach(f => f.value = "");
+          setTimeout(() => successEl.classList.remove("visible"), 5000);
+        }
+      });
+    });
+
+    /* ============================================================
+       PWA REGISTRATION
+       ============================================================ */
+    if ("serviceWorker" in navigator) {
+      navigator.serviceWorker.register("sw.js").catch(() => {});
+    }
+
+    /* PWA install prompt */
+    let deferredPrompt;
+    window.addEventListener("beforeinstallprompt", e => {
+      e.preventDefault();
+      deferredPrompt = e;
+      const prompt = document.createElement("div");
+      prompt.className = "ct-pwa-prompt";
+      prompt.innerHTML = `
+        <div class="ct-pwa-prompt__icon">CT</div>
+        <div class="ct-pwa-prompt__text">Install Cuttech<small>Add to home screen for quick access</small></div>
+        <div class="ct-pwa-prompt__actions">
+          <button class="ct-btn ct-btn--primary" id="pwa-install">Install</button>
+          <button class="ct-pwa-prompt__dismiss" id="pwa-dismiss">Later</button>
+        </div>
+      `;
+      document.body.appendChild(prompt);
+      setTimeout(() => prompt.classList.add("visible"), 3000);
+      document.getElementById("pwa-install").addEventListener("click", () => {
+        deferredPrompt.prompt();
+        prompt.classList.remove("visible");
+      });
+      document.getElementById("pwa-dismiss").addEventListener("click", () => {
+        prompt.classList.remove("visible");
+      });
+    });
+
+    /* ============================================================
+       BOTTOM MOBILE NAV (App-like)
+       ============================================================ */
+    function setupBottomNav() {
+      const nav = document.createElement("div");
+      nav.className = "ct-bottom-nav";
+      nav.innerHTML = `
+        <div class="ct-bottom-nav__inner">
+          <a class="ct-bottom-nav__item" href="index.html"><svg viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>Home</a>
+          <a class="ct-bottom-nav__item" href="products/index.html"><svg viewBox="0 0 24 24"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg>Products</a>
+          <a class="ct-bottom-nav__item" href="contact-us/index.html"><svg viewBox="0 0 24 24"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>Contact</a>
+          <a class="ct-bottom-nav__item" href="about-us/index.html"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><line x1="12" y1="16" x2="12" y2="12"/><line x1="12" y1="8" x2="12.01" y2="8"/></svg>About</a>
+          <a class="ct-bottom-nav__item" href="tel:+919270307505"><svg viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>Call</a>
+        </div>
+      `;
+      document.body.appendChild(nav);
+    }
+    setupBottomNav();
+
+    /* ============================================================
+       PULL TO REFRESH (Mobile)
+       ============================================================ */
+    let touchStartY = 0;
+    let pulling = false;
+    document.addEventListener("touchstart", e => {
+      if (window.scrollY === 0) touchStartY = e.touches[0].clientY;
+    }, { passive: true });
+    document.addEventListener("touchmove", e => {
+      const diff = e.touches[0].clientY - touchStartY;
+      if (diff > 80 && window.scrollY === 0 && !pulling) {
+        pulling = true;
+        location.reload();
+      }
+    }, { passive: true });
+
   });
 })();
