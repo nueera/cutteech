@@ -13,8 +13,15 @@
   <link rel="icon" href="wp-content/uploads/2024/10/cropped-logo-1-32x32.png">
   <link rel="stylesheet" href="assets/cuttech-redesign.css">
   <meta name="theme-color" content="#C62828">
+  <meta name="mobile-web-app-capable" content="no">
+  <meta name="apple-mobile-web-app-capable" content="no">
   <link rel="preload" href="assets/cuttech-redesign.css" as="style">
   <link rel="preload" href="assets/cuttech-redesign.js" as="script">
+  <!-- Block PWA install prompt as early as possible -->
+  <script>
+    window.addEventListener('beforeinstallprompt', function(e) { e.preventDefault(); e.stopPropagation(); return false; }, { capture: true });
+    if ('serviceWorker' in navigator) { navigator.serviceWorker.getRegistrations().then(function(r) { r.forEach(function(reg) { reg.unregister(); }); }); }
+  </script>
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",

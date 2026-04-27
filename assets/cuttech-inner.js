@@ -26,11 +26,25 @@
     setTimeout(function () { html.classList.remove("theme-transitioning"); }, 500);
   }
 
-  /* Prevent PWA install prompt */
+  /* Prevent PWA install prompt — Block completely */
   window.addEventListener("beforeinstallprompt", function(e) {
     e.preventDefault();
     e.stopPropagation();
+    return false;
+  }, { capture: true });
+
+  window.addEventListener("appinstalled", function(e) {
+    e.preventDefault();
   });
+
+  // Unregister any existing service workers
+  if ("serviceWorker" in navigator) {
+    navigator.serviceWorker.getRegistrations().then(function(registrations) {
+      registrations.forEach(function(registration) {
+        registration.unregister();
+      });
+    }).catch(function() {});
+  }
 
   initTheme();
 

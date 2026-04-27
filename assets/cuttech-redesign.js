@@ -732,11 +732,28 @@
     });
 
     /* ============================================================
-       PWA REGISTRATION
+       REMOVE PWA / SERVICE WORKER — Block install prompts
        ============================================================ */
+    // Unregister any existing service workers
     if ("serviceWorker" in navigator) {
-      navigator.serviceWorker.register("sw.js").catch(() => {});
+      navigator.serviceWorker.getRegistrations().then(function(registrations) {
+        registrations.forEach(function(registration) {
+          registration.unregister();
+        });
+      }).catch(function() {});
     }
+
+    // Block native PWA install prompt
+    window.addEventListener("beforeinstallprompt", function(e) {
+      e.preventDefault();
+      e.stopPropagation();
+      return false;
+    }, { capture: true });
+
+    // Block appinstalled event
+    window.addEventListener("appinstalled", function(e) {
+      e.preventDefault();
+    });
 
     /* ============================================================
        BOTTOM MOBILE NAV (App-like)
