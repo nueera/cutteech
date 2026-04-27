@@ -227,7 +227,6 @@
                 <div class="ct-hero__actions">
                   <a class="ct-btn ct-btn--primary ct-btn--lg" href="contact-us/index.html">Discuss a project</a>
                   <a class="ct-btn ct-btn--ghost ct-btn--lg" href="#solutions">View solutions</a>
-                  <button class="ct-btn ct-btn--secondary ct-btn--lg ct-hidden" id="pwa-install-btn" type="button">Install Cuttech</button>
                 </div>
                 <div class="ct-hero__stats ct-stagger" aria-label="Company highlights">
                   <div class="ct-stat ct-animate"><strong data-count="8">8+</strong><span>Industries served across precision manufacturing</span></div>
@@ -738,36 +737,6 @@
     if ("serviceWorker" in navigator) {
       navigator.serviceWorker.register("sw.js").catch(() => {});
     }
-
-    /* PWA install prompt */
-    let deferredPrompt = null;
-    const installButton = document.getElementById("pwa-install-btn");
-
-    window.addEventListener("beforeinstallprompt", e => {
-      e.preventDefault();
-      deferredPrompt = e;
-      if (installButton) {
-        installButton.classList.remove("ct-hidden");
-      }
-    });
-
-    if (installButton) {
-      installButton.addEventListener("click", async () => {
-        if (!deferredPrompt) return;
-        deferredPrompt.prompt();
-        const choice = await deferredPrompt.userChoice;
-        if (choice.outcome === "accepted") {
-          installButton.classList.add("ct-hidden");
-        }
-        deferredPrompt = null;
-      });
-    }
-
-    window.addEventListener("appinstalled", () => {
-      if (installButton) {
-        installButton.classList.add("ct-hidden");
-      }
-    });
 
     /* ============================================================
        BOTTOM MOBILE NAV (App-like)

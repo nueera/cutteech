@@ -2671,13 +2671,6 @@ body.cuttech-redesign h4, body.cuttech-redesign h5, body.cuttech-redesign h6 {
 }
 
 /* ============================================================
-   PWA INSTALL UTILITY
-   ============================================================ */
-.ct-hidden {
-  display: none !important;
-}
-
-/* ============================================================
    REDUCED MOTION
    ============================================================ */
 @media (prefers-reduced-motion: reduce) {
