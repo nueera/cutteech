@@ -2671,66 +2671,10 @@ body.cuttech-redesign h4, body.cuttech-redesign h5, body.cuttech-redesign h6 {
 }
 
 /* ============================================================
-   PWA INSTALL PROMPT
+   PWA INSTALL UTILITY
    ============================================================ */
-.ct-pwa-prompt {
-  position: fixed;
-  bottom: 20px;
-  left: 50%;
-  transform: translateX(-50%) translateY(100px);
-  z-index: 8000;
-  display: flex;
-  align-items: center;
-  gap: 16px;
-  padding: 16px 24px;
-  border-radius: var(--r-xl);
-  background: var(--surface);
-  border: 1px solid var(--border);
-  box-shadow: var(--shadow-xl);
-  transition: transform 0.5s var(--ease-spring);
-  max-width: calc(100% - 32px);
-}
-.ct-pwa-prompt.visible {
-  transform: translateX(-50%) translateY(0);
-}
-.ct-pwa-prompt__icon {
-  width: 40px;
-  height: 40px;
-  border-radius: var(--r-sm);
-  background: linear-gradient(135deg, var(--copper), var(--forge));
-  display: grid;
-  place-items: center;
-  color: #fff;
-  font-family: 'Outfit', sans-serif;
-  font-weight: 900;
-  font-size: 14px;
-  flex-shrink: 0;
-}
-.ct-pwa-prompt__text {
-  font-family: 'Outfit', sans-serif;
-  font-weight: 700;
-  font-size: 14px;
-}
-.ct-pwa-prompt__text small {
-  display: block;
-  font-weight: 500;
-  color: var(--muted);
-  font-size: 12px;
-  margin-top: 2px;
-}
-.ct-pwa-prompt__actions {
-  display: flex;
-  gap: 8px;
-  flex-shrink: 0;
-}
-.ct-pwa-prompt__dismiss {
-  background: none;
-  border: none;
-  color: var(--muted);
-  cursor: pointer;
-  font-size: 13px;
-  font-weight: 600;
-  padding: 8px;
+.ct-hidden {
+  display: none !important;
 }
 
 /* ============================================================
