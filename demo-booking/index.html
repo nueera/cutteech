@@ -3,39 +3,161 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Book a Demo | Cuttech</title>
-  <meta name="description" content="Book a Cuttech product demo for Virtek, Hexagon, CSM, Audaces, J Wei, CC Sistemas, CNC machinery and manufacturing automation.">
-  <link rel="canonical" href="../demo-booking/index.html">
+  <title>Book a Demo or Consultation | Cuttech</title>
+  <meta name="description" content="Schedule a hands-on demonstration of any Cuttech product line. Our technical team will tailor the session to your production requirements.">
+  <link rel="icon" href="../../wp-content/uploads/2024/10/cropped-logo-1-32x32.png">
   <link rel="stylesheet" href="../assets/cuttech-redesign.css">
-  <script src="../assets/cuttech-tracking.js" defer></script>
+  <link rel="preload" href="../assets/cuttech-redesign.css" as="style">
+  <link rel="preload" href="../assets/cuttech-inner.js" as="script">
+  <style>
+    .ct-page-hero {
+      background:
+        linear-gradient(115deg, rgba(7,13,25,0.96), rgba(200,90,24,0.58)),
+        url("../wp-content/uploads/2025/01/Advanced-Manufacturing-Solutions-1024x1024.jpg") center / cover no-repeat;
+    }
+  </style>
 </head>
 <body class="cuttech-redesign">
-  <header class="ct-nav"><div class="ct-nav__inner"><a class="ct-brand" href="../index.html"><span class="ct-brand__mark">CT</span><span class="ct-brand__text"><span class="ct-brand__name">Cuttech</span><span class="ct-brand__sub">Manufacturing technology</span></span></a><nav class="ct-nav__links"><a href="../products/index.html">Products</a><a href="../resources/index.html">Resources</a><a href="../case-studies/index.html">Case Studies</a><a href="../contact-us/index.html">Contact</a></nav><a class="ct-btn ct-btn--secondary" href="tel:+919270307505">Call</a></div></header>
-  <main>
-    <section class="ct-page-hero"><div class="ct-page-hero__inner"><span class="ct-eyebrow">Demo booking</span><h1>Schedule a manufacturing solution demo.</h1><p>Select the product area and preferred date. Cuttech can use this page as the Calendly or CRM-connected booking destination.</p></div></section>
-    <section class="ct-section">
-      <div class="ct-grid-2">
-        <div>
-          <div class="ct-section__head"><h2>Choose the right demo track.</h2><p>Demo requests are high-intent leads, so this page captures product interest before the sales conversation.</p></div>
-          <div class="ct-steps">
-            <article class="ct-step"><span class="ct-step__num">01</span><div><h3>Pick product interest</h3><p>Virtek, Hexagon, CSM, textile automation, CNC or general consultation.</p></div></article>
-            <article class="ct-step"><span class="ct-step__num">02</span><div><h3>Share production context</h3><p>Industry, material, throughput and quality goals help the team prepare.</p></div></article>
-            <article class="ct-step"><span class="ct-step__num">03</span><div><h3>Confirm meeting</h3><p>This static form can later be replaced by Calendly or HubSpot Meetings.</p></div></article>
+  <div class="ct-site">
+    <header class="ct-nav">
+      <div class="ct-nav__inner ct-container">
+        <a class="ct-brand" href="../index.html" aria-label="Cuttech home">
+          <span class="ct-brand__mark">CT</span>
+          <span class="ct-brand__text"><span class="ct-brand__name">Cuttech</span><span class="ct-brand__sub">Manufacturing technology</span></span>
+        </a>
+        <nav class="ct-nav__links" aria-label="Primary navigation">
+          <a href="../index.html#solutions">Solutions</a>
+          <a href="../products/index.html">Products</a>
+          <a href="../index.html#industries">Industries</a>
+          <a href="../about-us/index.html">About</a>
+        </nav>
+        <div class="ct-nav__actions">
+          <a class="ct-btn ct-btn--secondary" href="tel:+919270307505">Call</a>
+          <a class="ct-btn ct-btn--primary" href="../contact-us/index.html">Contact sales</a>
+          <button class="ct-mobile-toggle" aria-label="Open menu">&#9776;</button>
+        </div>
+      </div>
+    </header>
+    <div class="ct-mobile-menu" aria-label="Mobile navigation">
+      <button class="ct-mobile-menu__close" aria-label="Close menu">&times;</button>
+      <a href="../index.html#solutions">Solutions</a>
+      <a href="../products/index.html">Products</a>
+      <a href="../index.html#industries">Industries</a>
+      <a href="../about-us/index.html">About</a>
+      <a href="../contact-us/index.html">Contact Sales</a>
+      <a href="tel:+919270307505">Call Us</a>
+    </div>
+    <main>
+      <!-- Page Hero -->
+      <section class="ct-page-hero">
+        <div class="ct-grid-pattern"></div>
+        <div class="ct-page-hero__inner">
+          <div class="ct-eyebrow">Book a Demo</div>
+          <h1>Book a <span style="color: var(--copper-light);">demo</span> or consultation.</h1>
+          <p>Schedule a hands-on demonstration of any Cuttech product line. Our technical team will tailor the session to your production requirements.</p>
+          <div class="ct-hero__actions" style="margin-top: 32px;">
+            <a class="ct-btn ct-btn--primary ct-btn--lg" href="../contact-us/index.html">Schedule your demo today</a>
+            <a class="ct-btn ct-btn--ghost ct-btn--lg" href="tel:+919270307505">Call +91 92703 07505</a>
           </div>
         </div>
-        <form class="ct-form" action="mailto:info@cuttech.in" method="post" enctype="text/plain">
-          <label>Name<input name="name" autocomplete="name" required></label>
-          <label>Email<input type="email" name="email" autocomplete="email" required></label>
-          <label>Phone<input name="phone" autocomplete="tel" required></label>
-          <label>Company<input name="company" autocomplete="organization"></label>
-          <label>Preferred date<input type="date" name="preferred_date"></label>
-          <label>Product interest<select name="product_interest"><option>Virtek LaserQC / IRIS</option><option>Hexagon CAD/CAM</option><option>CSM Machinery</option><option>Audaces Fashion Technology</option><option>Automatic Cutting Machines</option><option>CNC Machinery</option><option>General Consultation</option></select></label>
-          <label>Message<textarea name="message" placeholder="Share material, process or production goal"></textarea></label>
-          <button class="ct-btn ct-btn--primary" type="submit">Request demo</button>
-        </form>
+      </section>
+
+      <!-- What to Expect -->
+      <section class="ct-section">
+        <div class="ct-container">
+          <div class="ct-section__head ct-animate">
+            <div>
+              <h2>What to <span class="ct-copper">expect</span></h2>
+              <p>A structured demo process tailored to your production needs.</p>
+            </div>
+          </div>
+          <div class="ct-grid-3 ct-stagger">
+            <div class="ct-mini-card ct-animate">
+              <div class="ct-step">01</div>
+              <h3>Technical Consultation</h3>
+              <p>We start with a detailed discussion about your production challenges, material types, volume requirements and quality targets — so the demo is focused on your real-world scenarios, not generic features.</p>
+            </div>
+            <div class="ct-mini-card ct-animate">
+              <div class="ct-step">02</div>
+              <h3>Product Demo</h3>
+              <p>Hands-on demonstration with your parts and CAD data — see the system running on your actual production scenarios with real results you can evaluate, measure and compare to your current process.</p>
+            </div>
+            <div class="ct-mini-card ct-animate">
+              <div class="ct-step">03</div>
+              <h3>Implementation Plan</h3>
+              <p>Following the demo, we provide a detailed implementation plan — machine specification, installation timeline, training schedule and projected ROI so you can make a confident investment decision.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Products Available for Demo -->
+      <section class="ct-section ct-section--dark">
+        <div class="ct-container">
+          <div class="ct-section__head ct-animate">
+            <div>
+              <h2>Products available for <span class="ct-copper">demo</span></h2>
+              <p>Hands-on sessions across all Cuttech product lines.</p>
+            </div>
+          </div>
+          <div class="ct-grid-3 ct-stagger">
+            <div class="ct-mini-card ct-animate">
+              <h3>Laser Systems</h3>
+              <p>Virtek LaserQC inspection and IRIS 3D laser projection — see how laser technology verifies parts and guides assembly in real time on your production floor.</p>
+              <ul>
+                <li>LaserQC flat-part inspection</li>
+                <li>IRIS 3D laser projection</li>
+                <li>ActiveTrack process verification</li>
+              </ul>
+            </div>
+            <div class="ct-mini-card ct-animate">
+              <h3>CNC / CSM</h3>
+              <p>Hexagon Radan CAD/CAM software and CSM tube bending machinery — watch your parts being programmed, nested and bent with precision on demonstration systems.</p>
+              <ul>
+                <li>Radan CAD/CAM workflow</li>
+                <li>CNC nesting and tool-path</li>
+                <li>CSM tube bending live demo</li>
+              </ul>
+            </div>
+            <div class="ct-mini-card ct-animate">
+              <h3>Textile Automation</h3>
+              <p>Audaces pattern, marker and cutting systems — see digital pattern to cut part in a live workflow from Audaces 360 design through Supera automatic cutting.</p>
+              <ul>
+                <li>Audaces 360 pattern and marker</li>
+                <li>DigiFlash pattern digitising</li>
+                <li>Supera automatic cutting</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- CTA -->
+      <section class="ct-section ct-section--tight">
+        <div class="ct-container">
+          <div class="ct-cta ct-animate-scale">
+            <div>
+              <h2>Schedule your demo today</h2>
+              <p>Choose a time that works and we'll set up a tailored demonstration with your parts, your data and your production scenarios — at your facility or ours.</p>
+            </div>
+            <a class="ct-btn ct-btn--primary ct-btn--lg" style="background: #fff; color: var(--copper-dark);" href="../contact-us/index.html">Schedule your demo today</a>
+          </div>
+        </div>
+      </section>
+    </main>
+    <footer class="ct-footer">
+      <div class="ct-footer__inner ct-container">
+        <div>
+          <div class="ct-footer__brand"><span class="ct-footer__brand-mark">CT</span><span class="ct-footer__brand-name">Cuttech</span></div>
+          <p class="ct-footer__desc">Advanced manufacturing, cutting and automation solutions for Indian production floors.</p>
+        </div>
+        <div class="ct-footer__col"><h4>Solutions</h4><a href="../automatic-cutting-machines/index.html">Automatic Cutting</a><a href="../virtek-laser-qc/index.html">Laser QC &amp; Projection</a><a href="../advanced-manufacturing-solutions/index.html">Manufacturing Cells</a></div>
+        <div class="ct-footer__col"><h4>Company</h4><a href="../about-us/index.html">About Cuttech</a><a href="../products/index.html">Products</a><a href="../contact-us/index.html">Contact</a><a href="tel:+919270307505">+91 92703 07505</a></div>
+        <div class="ct-footer__bottom"><span>&copy; 2026 Cuttech. All rights reserved.</span><span>Manufacturing technology for modern production</span></div>
       </div>
-    </section>
-  </main>
-  <footer class="ct-footer"><div class="ct-footer__inner"><div><strong>Cuttech</strong><br>Demo booking and sales consultation.</div><div><a href="mailto:info@cuttech.in">info@cuttech.in</a><br><a href="tel:+919270307505">+91 92703 07505</a></div></div></footer>
+    </footer>
+  </div>
+  <script src="../assets/cuttech-tracking.js"></script>
+  <script src="../assets/cuttech-inner.js"></script>
 </body>
 </html>
