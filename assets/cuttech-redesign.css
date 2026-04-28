@@ -3599,8 +3599,55 @@ body.cuttech-redesign h4, body.cuttech-redesign h5, body.cuttech-redesign h6 {
   /* Skeleton mobile */
   .ct-skeleton--card { height: 200px; }
 
-  /* Sticky mobile bar */
-  .ct-sticky-mobile { display: none !important; }
+  /* Sticky mobile bar — SHOW on mobile at bottom with Call + WhatsApp */
+  .ct-sticky-mobile {
+    display: grid !important;
+    grid-template-columns: 1fr 1fr;
+    gap: 8px;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 600;
+    padding: 10px 12px calc(10px + env(safe-area-inset-bottom, 0px));
+    background: var(--surface-glass);
+    backdrop-filter: blur(28px) saturate(200%);
+    -webkit-backdrop-filter: blur(28px) saturate(200%);
+    border-top: 1px solid var(--border);
+  }
+  .ct-sticky-mobile .ct-btn { width: 100%; text-align: center; }
+
+  /* Hero panel hidden on very small screens */
+  .ct-hero__panel { display: none; }
+
+  /* Explorer grid reduce cell padding */
+  .ct-explorer__cell { padding: 8px 6px !important; font-size: 10px; }
+  .ct-explorer__row { min-width: 480px; }
+
+  /* Table scroll container mobile padding */
+  .ct-table-wrap { margin: 0 -4px; padding: 0; border-radius: 0; }
+
+  /* File input mobile styling */
+  .ct-form input[type="file"] {
+    font-size: 14px;
+    padding: 10px 12px;
+  }
+  .ct-form input[type="file"]::file-selector-button {
+    padding: 8px 14px;
+    border: 1px solid var(--copper);
+    border-radius: var(--r-sm);
+    background: var(--copper-soft);
+    color: var(--copper);
+    font-family: 'Outfit', sans-serif;
+    font-weight: 700;
+    font-size: 12px;
+    cursor: pointer;
+    margin-right: 10px;
+  }
+
+  /* Footer bottom spacing on mobile */
+  .ct-footer__bottom { gap: 8px; }
+  .ct-footer__bottom span { display: block; }
 }
 
 /* ============================================================
@@ -4065,8 +4112,23 @@ body.cuttech-redesign h4, body.cuttech-redesign h5, body.cuttech-redesign h6 {
   stroke-linejoin: round;
 }
 @media (max-width: 640px) {
-  .ct-bottom-nav { display: block; }
-  .ct-sticky-mobile { display: none !important; }
+  .ct-bottom-nav { display: none; }
+  .ct-sticky-mobile {
+    display: grid !important;
+    grid-template-columns: 1fr 1fr;
+    gap: 8px;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 600;
+    padding: 10px 12px calc(10px + env(safe-area-inset-bottom, 0px));
+    background: var(--surface-glass);
+    backdrop-filter: blur(28px) saturate(200%);
+    -webkit-backdrop-filter: blur(28px) saturate(200%);
+    border-top: 1px solid var(--border);
+  }
+  .ct-sticky-mobile .ct-btn { width: 100%; text-align: center; }
   .ct-footer { padding-bottom: 80px; }
 }
 
@@ -4328,4 +4390,313 @@ body.cuttech-redesign h4, body.cuttech-redesign h5, body.cuttech-redesign h6 {
   .ct-blog-grid, .ct-case-grid { grid-template-columns: 1fr; }
   .ct-cta { padding: 28px; }
   .ct-404__code { font-size: 100px; }
+}
+
+/* ============================================================
+   WHATSAPP FLOATING BUTTON (Enhancement 2)
+   ============================================================ */
+.ct-whatsapp-float {
+  position: fixed;
+  bottom: 24px;
+  right: 24px;
+  z-index: 400;
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  background: #25D366;
+  display: grid;
+  place-items: center;
+  box-shadow: 0 4px 16px rgba(37,211,102,0.35);
+  cursor: pointer;
+  transition: transform 0.3s var(--ease-spring), box-shadow 0.3s var(--ease);
+  text-decoration: none;
+  animation: whatsapp-pulse 3s ease-in-out 1;
+}
+.ct-whatsapp-float:hover {
+  transform: scale(1.1);
+  box-shadow: 0 6px 24px rgba(37,211,102,0.5);
+}
+.ct-whatsapp-float svg {
+  width: 28px;
+  height: 28px;
+  fill: #fff;
+}
+.ct-whatsapp-float__tooltip {
+  position: absolute;
+  right: 68px;
+  top: 50%;
+  transform: translateY(-50%);
+  background: var(--surface);
+  color: var(--fg);
+  padding: 8px 14px;
+  border-radius: var(--r-sm);
+  font-family: 'Outfit', sans-serif;
+  font-size: 13px;
+  font-weight: 600;
+  white-space: nowrap;
+  box-shadow: var(--shadow-md);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.2s ease;
+}
+.ct-whatsapp-float:hover .ct-whatsapp-float__tooltip {
+  opacity: 1;
+}
+@keyframes whatsapp-pulse {
+  0% { transform: scale(1); box-shadow: 0 4px 16px rgba(37,211,102,0.35); }
+  25% { transform: scale(1.15); box-shadow: 0 4px 30px rgba(37,211,102,0.55); }
+  50% { transform: scale(1); box-shadow: 0 4px 16px rgba(37,211,102,0.35); }
+  75% { transform: scale(1.1); box-shadow: 0 4px 24px rgba(37,211,102,0.45); }
+  100% { transform: scale(1); box-shadow: 0 4px 16px rgba(37,211,102,0.35); }
+}
+@media (max-width: 640px) {
+  .ct-whatsapp-float {
+    bottom: 80px;
+    right: 16px;
+    width: 50px;
+    height: 50px;
+  }
+  .ct-whatsapp-float svg { width: 24px; height: 24px; }
+  .ct-whatsapp-float__tooltip { display: none; }
+}
+
+/* ============================================================
+   FAQ ACCORDION (Enhancement 3)
+   ============================================================ */
+.ct-faq {
+  display: grid;
+  gap: 12px;
+  max-width: 800px;
+}
+.ct-faq__item {
+  border: 1px solid var(--border);
+  border-radius: var(--r-lg);
+  background: var(--surface);
+  overflow: hidden;
+  transition: border-color var(--dur-fast) var(--ease), box-shadow var(--dur-fast) var(--ease);
+}
+.ct-faq__item:hover {
+  border-color: var(--copper);
+}
+.ct-faq__item--open {
+  border-color: var(--copper);
+  box-shadow: var(--shadow-sm);
+}
+.ct-faq__question {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  width: 100%;
+  padding: 20px 24px;
+  border: none;
+  background: transparent;
+  color: var(--fg);
+  font-family: 'Outfit', sans-serif;
+  font-size: 17px;
+  font-weight: 700;
+  line-height: 1.4;
+  letter-spacing: -0.01em;
+  text-align: left;
+  cursor: pointer;
+  transition: color var(--dur-fast) var(--ease);
+}
+.ct-faq__question:hover {
+  color: var(--copper);
+}
+.ct-faq__icon {
+  width: 28px;
+  height: 28px;
+  display: grid;
+  place-items: center;
+  border-radius: var(--r-sm);
+  background: var(--copper-soft);
+  color: var(--copper);
+  font-size: 20px;
+  font-weight: 400;
+  line-height: 1;
+  flex-shrink: 0;
+  transition: transform 0.3s var(--ease), background 0.3s var(--ease);
+}
+.ct-faq__item--open .ct-faq__icon {
+  transform: rotate(45deg);
+  background: var(--copper);
+  color: #fff;
+}
+.ct-faq__answer {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.4s var(--ease), padding 0.4s var(--ease);
+  padding: 0 24px;
+}
+.ct-faq__item--open .ct-faq__answer {
+  max-height: 500px;
+  padding: 0 24px 20px;
+}
+.ct-faq__answer p {
+  margin: 0;
+  color: var(--muted);
+  line-height: 1.7;
+  font-size: 15px;
+}
+@media (max-width: 640px) {
+  .ct-faq { gap: 10px; }
+  .ct-faq__question {
+    padding: 16px 18px;
+    font-size: 15px;
+  }
+  .ct-faq__icon { width: 24px; height: 24px; font-size: 16px; }
+  .ct-faq__answer { padding: 0 18px; }
+  .ct-faq__item--open .ct-faq__answer { padding: 0 18px 16px; }
+  .ct-faq__answer p { font-size: 14px; }
+}
+
+/* ============================================================
+   MEGA MENU (Enhancement 6)
+   ============================================================ */
+.ct-mega-menu {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  z-index: 499;
+  background: var(--surface-glass);
+  backdrop-filter: blur(28px) saturate(200%);
+  -webkit-backdrop-filter: blur(28px) saturate(200%);
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+  box-shadow: var(--shadow-lg);
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(-8px);
+  transition: opacity 0.25s ease, visibility 0.25s ease, transform 0.25s ease;
+}
+.ct-mega-menu--visible {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+.ct-mega-menu__inner {
+  width: min(var(--container), calc(100% - 48px));
+  margin: 0 auto;
+  padding: 32px 0;
+}
+.ct-mega-menu__grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+.ct-mega-menu__card {
+  display: grid;
+  grid-template-columns: 64px 1fr;
+  gap: 16px;
+  padding: 16px;
+  border: 1px solid transparent;
+  border-radius: var(--r-lg);
+  transition: border-color var(--dur-fast) var(--ease), background var(--dur-fast) var(--ease);
+  text-decoration: none;
+  color: inherit;
+}
+.ct-mega-menu__card:hover {
+  border-color: var(--copper);
+  background: var(--copper-soft);
+}
+.ct-mega-menu__card-img {
+  width: 64px;
+  height: 64px;
+  border-radius: var(--r-md);
+  object-fit: cover;
+  background: var(--bg-alt);
+}
+.ct-mega-menu__card h4 {
+  margin: 0 0 4px;
+  font-family: 'Outfit', sans-serif;
+  font-size: 15px;
+  font-weight: 700;
+  color: var(--fg);
+}
+.ct-mega-menu__card p {
+  margin: 0;
+  color: var(--muted);
+  font-size: 13px;
+  line-height: 1.5;
+}
+@media (max-width: 1024px) {
+  .ct-mega-menu { display: none; }
+}
+
+/* ============================================================
+   ENHANCED PAGE TRANSITIONS (Enhancement 5)
+   ============================================================ */
+.ct-page-transition {
+  position: fixed;
+  inset: 0;
+  z-index: 9998;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  overflow: hidden;
+}
+.ct-page-transition::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, var(--copper), var(--steel));
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+.ct-page-transition.active {
+  opacity: 1;
+  pointer-events: all;
+}
+.ct-page-transition.active::before {
+  opacity: 0.95;
+}
+.ct-page-transition--enter {
+  opacity: 0;
+  animation: page-enter 0.4s ease forwards;
+}
+@keyframes page-enter {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+.ct-page-transition__logo {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-family: 'Outfit', sans-serif;
+  font-size: 32px;
+  font-weight: 900;
+  color: #fff;
+  letter-spacing: -0.04em;
+}
+.ct-page-transition.active .ct-page-transition__logo {
+  animation: logo-fade 0.3s ease 0.1s forwards;
+  opacity: 0;
+}
+@keyframes logo-fade {
+  from { opacity: 0; transform: translate(-50%, -50%) scale(0.9); }
+  to { opacity: 1; transform: translate(-50%, -50%) scale(1); }
+}
+
+/* ============================================================
+   CONTACT PAGE GRID INLINE STYLE OVERRIDE (Enhancement 1)
+   ============================================================ */
+@media (max-width: 1024px) {
+  .ct-grid-2[style*="gap"] {
+    gap: 24px !important;
+  }
+}
+@media (max-width: 768px) {
+  .ct-grid-2[style*="gap"] {
+    gap: 20px !important;
+  }
+}
+
+/* ============================================================
+   PRERENDER CONTENT (Enhancement 9)
+   ============================================================ */
+#ct-prerender {
+  display: none;
 }

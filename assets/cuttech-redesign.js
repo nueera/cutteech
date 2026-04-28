@@ -114,6 +114,36 @@
   ];
 
   /* ============================================================
+     FAQ DATA (Enhancement 3)
+     ============================================================ */
+  const faqs = [
+    { q: "What industries does Cuttech serve?", a: "Cuttech serves aerospace, automotive, apparel, footwear, sheet metal, wind energy, healthcare, and home furnishings industries. Each industry has specific machine requirements, and Cuttech's multi-brand portfolio allows us to recommend the right solution for each workflow." },
+    { q: "How quickly can I get a machine installed?", a: "Typical installation timelines range from 4 to 8 weeks from order confirmation, depending on machine availability and site readiness. Cuttech coordinates delivery, installation and operator training as a complete package." },
+    { q: "Do you provide training after installation?", a: "Yes, every Cuttech installation includes comprehensive operator training. We stay on-site until your team is confident running the machine independently, and we provide ongoing remote and on-site technical support." },
+    { q: "Can I compare products before buying?", a: "Absolutely. Cuttech offers product demonstrations at our demo centre, and our product comparison tool on the Products page lets you evaluate specifications side by side. We recommend scheduling a demo after your initial consultation." },
+    { q: "What makes Cuttech different from buying direct?", a: "Cuttech provides a process-first approach. Instead of selling from a catalog, we map your production workflow, compare options across our six technology partners, and recommend the solution that best fits your actual needs — even if it means suggesting a lower-cost option." },
+    { q: "Do you offer after-sales support?", a: "Yes. Cuttech provides ongoing technical support, spare parts coordination, and maintenance services. Our target response time for qualified technical enquiries is 24 hours, and we maintain service coverage across India." }
+  ];
+
+  /* ============================================================
+     MEGA MENU DATA (Enhancement 6)
+     ============================================================ */
+  const megaMenuProducts = [
+    { title: "Virtek Iris", desc: "3D laser projection system", img: "wp-content/uploads/2024/11/Screenshot-2024-11-22-153628-Photoroom.webp", href: "virtek-iris/index.html" },
+    { title: "Eagle Cutting", desc: "Automated cutting solution", img: "wp-content/uploads/2024/11/monotower_eagle-scaled.webp", href: "eagle/index.html" },
+    { title: "Laser Cutting", desc: "Precision CO2/fiber laser", img: "wp-content/uploads/2025/01/Laser-Cutting-Machine.webp", href: "laser-cutting-machine/index.html" },
+    { title: "Fabric Roll Loader", desc: "Automated fabric handling", img: "wp-content/uploads/2024/11/ezgif.com-gif-maker-10-4.webp", href: "fabric-roll-loader/index.html" },
+    { title: "CSM Tube Bender", desc: "CNC bending & forming", img: "wp-content/uploads/2025/01/CSM-Machinery.webp", href: "csm-machinery/index.html" },
+    { title: "Virtek Laser QC", desc: "Inspection & reverse eng.", img: "wp-content/uploads/2025/01/Virtek-Laser-QC.webp", href: "virtek-laser-qc/index.html" }
+  ];
+
+  const megaMenuSolutions = [
+    { title: "Automatic Cutting", desc: "High-throughput cutting for textiles", img: "wp-content/uploads/2025/01/Automatic-Cutting-Machines.webp", href: "automatic-cutting-machines/index.html" },
+    { title: "Laser QC & Projection", desc: "Inspection and projection systems", img: "wp-content/uploads/2025/01/Virtek-Laser-QC.webp", href: "virtek-laser-qc/index.html" },
+    { title: "Manufacturing Cells", desc: "CNC, CSM, nesting & quoting", img: "wp-content/uploads/2025/01/Advanced-Manufacturing-Solutions-scaled.webp", href: "advanced-manufacturing-solutions/index.html" }
+  ];
+
+  /* ============================================================
      SVG ICONS
      ============================================================ */
   const sunIcon = `<svg class="icon-sun" viewBox="0 0 24 24"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>`;
@@ -424,6 +454,19 @@
             </div>
           </section>
 
+          <!-- FAQ (Enhancement 3) -->
+          <section class="ct-section" id="faq">
+            <div class="ct-container">
+              <div class="ct-section__head ct-animate">
+                <h2>Frequently asked <span class="ct-copper">questions</span>.</h2>
+                <p>Common questions from manufacturing teams evaluating Cuttech solutions.</p>
+              </div>
+              <div class="ct-faq ct-stagger">
+                ${faqs.map(f => '<div class="ct-faq__item ct-animate"><button class="ct-faq__question"><span>' + f.q + '</span><span class="ct-faq__icon">+</span></button><div class="ct-faq__answer"><p>' + f.a + '</p></div></div>').join("")}
+              </div>
+            </div>
+          </section>
+
           <!-- Testimonials Carousel -->
           <section class="ct-section ct-section--dark" id="testimonials">
             <div class="ct-section__head ct-animate">
@@ -508,6 +551,17 @@
       <button class="ct-back-top" id="ct-back-top" aria-label="Back to top">
         ${arrowUpIcon}
       </button>
+
+      <!-- WhatsApp Float (Enhancement 2) -->
+      <a class="ct-whatsapp-float" href="https://wa.me/919270307505" target="_blank" rel="noopener" aria-label="Chat on WhatsApp">
+        <span class="ct-whatsapp-float__tooltip">Chat with us</span>
+        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+      </a>
+
+      <!-- Page Transition (Enhancement 5) -->
+      <div class="ct-page-transition" id="ct-page-transition">
+        <span class="ct-page-transition__logo">CT</span>
+      </div>
 
       <!-- Search Overlay -->
       <div class="ct-search-overlay" id="ct-search-overlay" aria-hidden="true">
@@ -759,6 +813,114 @@
     setupNavHighlight();
 
     /* ============================================================
+       FAQ ACCORDION (Enhancement 3)
+       ============================================================ */
+    function setupFaq() {
+      document.querySelectorAll(".ct-faq__question").forEach(btn => {
+        btn.addEventListener("click", () => {
+          const item = btn.closest(".ct-faq__item");
+          const isOpen = item.classList.contains("ct-faq__item--open");
+          // Close all
+          document.querySelectorAll(".ct-faq__item--open").forEach(openItem => {
+            openItem.classList.remove("ct-faq__item--open");
+          });
+          // Toggle current
+          if (!isOpen) {
+            item.classList.add("ct-faq__item--open");
+          }
+        });
+      });
+    }
+    setupFaq();
+
+    /* ============================================================
+       MEGA MENU (Enhancement 6)
+       ============================================================ */
+    function setupMegaMenu() {
+      const navEl = document.getElementById("ct-nav");
+      if (!navEl) return;
+      const productsLink = navEl.querySelector('.ct-nav__links a[href*="products"]');
+      const solutionsLink = navEl.querySelector('.ct-nav__links a[href="#solutions"]');
+
+      function buildMegaMenu(items, type) {
+        const grid = items.map(item =>
+          '<a class="ct-mega-menu__card" href="' + item.href + '">' +
+          '<img class="ct-mega-menu__card-img" src="' + item.img + '" alt="' + item.title + '" loading="lazy">' +
+          '<div><h4>' + item.title + '</h4><p>' + item.desc + '</p></div></a>'
+        ).join("");
+        return '<div class="ct-mega-menu" data-mega="' + type + '"><div class="ct-mega-menu__inner"><div class="ct-mega-menu__grid">' + grid + '</div></div></div>';
+      }
+
+      // Add mega menus after nav
+      if (productsLink) {
+        productsLink.insertAdjacentHTML("afterend", buildMegaMenu(megaMenuProducts, "products"));
+        const megaEl = productsLink.parentElement.querySelector('[data-mega="products"]');
+        if (megaEl) {
+          const wrapper = document.createElement("div");
+          wrapper.style.position = "relative";
+          wrapper.style.display = "contents";
+          productsLink.parentElement.insertBefore(megaEl, productsLink.parentElement.firstChild);
+        }
+      }
+
+      // Hover logic for products link
+      if (productsLink) {
+        const productsMega = navEl.querySelector('[data-mega="products"]');
+        if (productsMega) {
+          let productsTimeout;
+          productsLink.addEventListener("mouseenter", () => {
+            clearTimeout(productsTimeout);
+            navEl.querySelectorAll(".ct-mega-menu--visible").forEach(m => m.classList.remove("ct-mega-menu--visible"));
+            productsMega.classList.add("ct-mega-menu--visible");
+          });
+          productsLink.parentElement.addEventListener("mouseleave", () => {
+            productsTimeout = setTimeout(() => productsMega.classList.remove("ct-mega-menu--visible"), 200);
+          });
+          productsMega.addEventListener("mouseenter", () => clearTimeout(productsTimeout));
+          productsMega.addEventListener("mouseleave", () => {
+            productsTimeout = setTimeout(() => productsMega.classList.remove("ct-mega-menu--visible"), 200);
+          });
+        }
+      }
+    }
+    setupMegaMenu();
+
+    /* ============================================================
+       PAGE TRANSITIONS (Enhancement 5)
+       ============================================================ */
+    const ptEl = document.getElementById("ct-page-transition");
+    if (ptEl) {
+      document.querySelectorAll("a[href]").forEach(link => {
+        const href = link.getAttribute("href");
+        if (!href || href.startsWith("#") || href.startsWith("tel:") || href.startsWith("mailto:") || href.startsWith("http") || href.indexOf("wa.me") !== -1) return;
+        link.addEventListener("click", e => {
+          e.preventDefault();
+          ptEl.classList.add("active");
+          setTimeout(() => { window.location.href = href; }, 300);
+        });
+      });
+    }
+
+    /* ============================================================
+       AVIF IMAGE SUPPORT (Enhancement 10)
+       ============================================================ */
+    function checkAvifSupport() {
+      return new Promise(function(resolve) {
+        var img = new Image();
+        img.src = 'data:image/avif;base64,AAAAIGZ0eXBhdmlmAAAAAGF2aWZtaWYxbWlhZk1BMUIAAADybWV0YQAAAAAAAAAoaGRscgAAAAAAAAAAcGljdQAAAAAAAAAAAAAAAAAAAAAAAADxbWV0YQAAAAAAAAAoaGRscgAAAAAAAAAAcGljdQAAAAAAAAAAAAAAAAAAAAAAAADxbWV0YQAAAAAAAAAoaGRscgAAAAAAAAAAcGljdQAAAAAAAAAAAAAAAAAAAAAAAADxbWV0YQAAAAAAAAAoaGRscgAAAAAAAAAAcGljdQAAAAAAAAAAAAAAAAAAAAAAAADxbWV0YQAAAAAAAAAoaGRscgAAAAAAAAAAcGljdQAAAAAAAAAAAAAAAAAAAAAAAADxbWV0YQAAAAAAAAAoaGRscgAAAAAAAAAAcGljdQAAAAAAAAAAAAAAAAAAAAAAAADxbWV0YQAAAAAAAAAoaGRscgAAAAAAAAAAcGljdQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==';
+        img.onload = function() { resolve(true); };
+        img.onerror = function() { resolve(false); };
+      });
+    }
+    checkAvifSupport().then(function(supported) {
+      if (supported) {
+        document.querySelectorAll("img[src$='.webp']").forEach(function(img) {
+          img.setAttribute("data-avif-supported", "true");
+        });
+      }
+    });
+
+    /* ============================================================
        3D CARD TILT EFFECT
        ============================================================ */
     function setupTiltCards() {
@@ -802,23 +964,6 @@
       });
     }
     setupTextReveal();
-
-    /* ============================================================
-       PAGE TRANSITIONS
-       ============================================================ */
-    const transition = document.createElement("div");
-    transition.className = "ct-page-transition";
-    document.body.appendChild(transition);
-
-    document.querySelectorAll("a[href]").forEach(link => {
-      const href = link.getAttribute("href");
-      if (!href || href.startsWith("#") || href.startsWith("tel:") || href.startsWith("mailto:") || href.startsWith("http") || href.startsWith("wa.me")) return;
-      link.addEventListener("click", e => {
-        e.preventDefault();
-        transition.classList.add("active");
-        setTimeout(() => { window.location.href = href; }, 300);
-      });
-    });
 
     /* ============================================================
        IMAGE LIGHTBOX
