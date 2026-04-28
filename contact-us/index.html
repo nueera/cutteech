@@ -62,22 +62,22 @@
 
       <!-- Contact Content -->
       <section class="ct-section">
-        <div class="ct-grid-2" style="grid-template-columns: 1.1fr 0.9fr; gap: 32px;">
+        <div class="ct-grid-2" style="gap: 32px;">
           <!-- Contact Form -->
           <div class="ct-animate">
             <h2 style="margin: 0 0 20px; font-family: 'Outfit', sans-serif; font-size: 26px; font-weight: 800;">Send an enquiry</h2>
-            <form class="ct-form" action="#" method="POST">
-              <label>Name
-                <input type="text" name="name" placeholder="Your full name" required>
+            <form class="ct-form" id="contact-form" action="#" method="POST" novalidate>
+              <label>Name <span style="color:var(--copper)">*</span>
+                <input type="text" name="name" placeholder="Your full name" required minlength="2" autocomplete="name">
               </label>
-              <label>Email
-                <input type="email" name="email" placeholder="you@company.com" required>
+              <label>Email <span style="color:var(--copper)">*</span>
+                <input type="email" name="email" placeholder="you@company.com" required autocomplete="email">
               </label>
               <label>Phone
-                <input type="tel" name="phone" placeholder="+91 XXXXX XXXXX">
+                <input type="tel" name="phone" placeholder="+91 XXXXX XXXXX" pattern="[+]?[0-9\s\-]{7,15}" autocomplete="tel">
               </label>
               <label>Company
-                <input type="text" name="company" placeholder="Company name">
+                <input type="text" name="company" placeholder="Company name" autocomplete="organization">
               </label>
               <label>Industry
                 <select name="industry">
@@ -94,7 +94,7 @@
                 </select>
               </label>
               <label>How can we help?
-                <textarea name="message" placeholder="Describe your production challenge, material type, throughput goals, or any specific requirements..."></textarea>
+                <textarea name="message" placeholder="Describe your production challenge, material type, throughput goals, or any specific requirements..." rows="5" minlength="10"></textarea>
               </label>
               <button class="ct-btn ct-btn--primary ct-btn--lg" type="submit" style="width: 100%;">Submit enquiry</button>
             </form>
